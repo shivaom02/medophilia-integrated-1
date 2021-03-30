@@ -5,16 +5,16 @@ const pharmaSchema = new mongoose.Schema(
     {
         password: {
             type: String,
-            // required: true,
+            required: true,
         },
         
         name: {
             type: String,
-            // required: [true, 'is required'],
+            required: [true, 'is required'],
         },
         email: {
             type: String,
-            // required: true,
+            required: true,
         },
         phone:{
             type:Number
