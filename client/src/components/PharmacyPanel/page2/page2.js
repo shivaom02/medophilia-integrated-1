@@ -1,6 +1,10 @@
 import React from "react";
-import banner from "../assets/banner.svg";
+import banner from "../../assets/banner.svg";
+
 import "./page2.css"
+
+import { Link } from 'react-router-dom';
+
 const ScaneOr=()=>{
     return(
     <div className="registration">
@@ -14,9 +18,11 @@ const ScaneOr=()=>{
             <button>
                 Scan New
             </button>
-            <button>
+            <Link to='/index'>
+              <button>
                 View Purchase
-            </button>
+              </button>
+            </Link>
             
         </div>
         <div className="buttonlogout">

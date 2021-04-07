@@ -1,5 +1,8 @@
 import React from "react";
-import banner from "../assets/banner.svg";
+import banner from "../../assets/banner.svg";
+
+import { Link } from 'react-router-dom';
+
 import "./page1.css"
 const Registration=()=>{
     return(
@@ -15,9 +18,11 @@ const Registration=()=>{
                     <input type="checkbox" id="checkit" />
                     <label for="checkit" >Remember me</label>
                 </div>
-                <button>
-                    Sign In
-                </button>
+                <Link to='/page2'>
+                   <button>
+                      Sign In
+                   </button>
+                </Link>
             </div>
             <div className="dividor">
                 <div className="border_div">
@@ -31,9 +36,11 @@ const Registration=()=>{
                 </div>
             </div>
             <div className="options">
-                <button>
-                    Login using Google
-                </button>
+                <Link to='/page2'>
+                   <button>
+                      Login using Google
+                   </button>
+                </Link>
             </div>
         </form>
 

@@ -2,7 +2,7 @@
     background: #101F36;
 }
 .registration .enter_options{
-    background-image: url("../assets/peps.svg");
+    background-image: url("../../assets/banner.svg");
     background-size: 100% 80%;
     background-repeat: no-repeat;
     display:flex;

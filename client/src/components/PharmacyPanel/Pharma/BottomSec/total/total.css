@@ -1,0 +1,30 @@
+.total{
+    padding:3% 4%;
+}
+
+  .total .control {
+      display: flex;
+      flex-direction: column;
+      justify-content:center;
+      align-items: center;
+      margin-top: 120px;
+  }
+  .total .control button{
+    border:0px solid;
+    width: 150px;
+    padding:10px;
+    border-radius: 40px;
+    background: #16A309;
+    color:#fff;
+}
+.total .msg p{
+    line-height:4px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    color: #000000;
+    text-align: center;
+}
+.total .msg  p span{
+    color: red;
+}

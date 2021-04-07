@@ -1,6 +1,7 @@
 import React from 'react'
-import from './qr scanner.css'
-function qr sanner() {
+import './qrscanner.css'
+
+function Qrsanner() {
     return (
         <div>
             
@@ -8,4 +9,4 @@ function qr sanner() {
     )
 }
 
-export default qr sanner
+export default Qrsanner

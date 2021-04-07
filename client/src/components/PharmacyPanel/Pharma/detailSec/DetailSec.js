@@ -1,7 +1,9 @@
 import React from "react";
 import "./Details.css";
-import img from "../../assets/banner.svg";
-import {ReactComponent as Cart} from "../../assets/shopping-cart.svg";
+import img from "../../../assets/banner.svg";
+import {ReactComponent as Cart} from "../../../assets/shopping-cart.svg";
+
+import { Link } from 'react-router-dom';
 
 const DetailsSec=()=>{
     return(
@@ -26,14 +28,26 @@ const DetailsSec=()=>{
                         <p>Xyz Hospital</p>
                         <p>Detail 1</p>
                 </div>
-            <div className="icon">
-            <Cart id="cart"/>
-            </div>
+              <div className="icon">
+                <Link to='/index/total'>
+
+                   <Cart id="cart"/>
+                 </Link>
+               </div>
+
         </div>
         <nav className="sections">
-            <div>Medicine</div>
-            <div>Tests</div>
-            <div>Clinical Notes</div>
+            <Link to='/index' >
+               <div>Medicine</div>
+            </Link>
+            <div>
+              <Link to='/index/Test' >
+                Tests
+               </Link>
+            </div>
+            <Link to='/index/Notes' >
+               <div>Clinical Notes</div>
+            </Link>
         </nav>
     </div>)
 }
