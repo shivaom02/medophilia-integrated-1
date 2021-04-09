@@ -49,15 +49,19 @@ text-align: center;
 margin-top: 2%;
 }
 .DPescription_4throw{
+    display: flex;
+    flex-direction: row;
     text-align: center;
     justify-content: center;
     margin-top: 5%;
+    margin-bottom: 2%;
 }
 .DPescription_5throw{
     background-color: #E2DFDF;
     max-width: 30%;
     padding: 2vw;
     margin-left: 33%;
+    border-radius: 7px;
 }
 .DPconfirmation{
     text-align: center;

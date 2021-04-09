@@ -215,11 +215,11 @@ function Pescription() {
             
         </div>
         <div className="DPescription_4throw">
-           <img src={addd} />
-           Add Medicine
+           <div style={{marginTop:'5px'}}><img src={addd} /></div>
+           <div style={{fontSize:'1.6rem'}}>Add Medicine</div>
         </div>
        <div  className="DPescription_5throw">
-           <div className="heading">CLINICAL NOTE</div>
+           <div style={{fontWeight:'bolder',marginBottom:'3%'}} className="heading">CLINICAL NOTE</div>
            <div className="body">Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out print, graphic or web designs. The passage is attributed to an unknown typesetter in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum et Malorum for use in a type specimen book.</div>
        </div>
        <div className="DPconfirmation">
