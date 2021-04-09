@@ -1,0 +1,31 @@
+.cumDetails
+{
+    padding: 2% 2%;
+    margin-top: 10px;
+}
+
+.cumDetails .content 
+{
+    height: 75px;    
+    background: #C1FFCF;
+    box-shadow: 7px 4px 4px rgba(0, 0, 0, 0.25);
+    display:flex;
+    justify-content:center;
+    flex-direction: column;
+    padding:10px;
+    margin-top:40px;
+    text-align: center;
+}
+.cumDetails .content p
+{
+    line-height:4px;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    color: #000000;
+}
+
+.cumDetails .content p span
+{
+    color: red;
+}

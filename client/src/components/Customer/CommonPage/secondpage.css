@@ -1,0 +1,84 @@
+.SecondPage{
+    background: linear-gradient(270deg, #662571 0%, #5973CB 100%);
+    width: 100%;
+    height: 310px;
+ }
+ 
+ .SecondPage .doctor, .user{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+ }
+
+ .SecondPage .doctor, .user .photo{
+   
+    height: 100px;
+    width: 100px;
+    border-radius: 100%;
+    background-color: #C4C4C4;
+    text-align: center;
+    align-items: center;
+}
+ 
+ .SecondPage  .content {
+     line-height:10px;
+     font-style: normal;
+     font-weight: bold;
+     font-size: 16px;
+     color: #fff;
+     text-align: center;
+ }
+ 
+ .SecondPage .doctor img{
+     width:80px;
+     height:80px;
+     border-radius: 50px;
+     border: 1px solid #fff;
+     margin: 20px
+ } 
+ .SecondPage .user img{
+     margin: 20px;
+     width:80px;
+     height:80px;
+     border-radius: 50px;
+     border: 1px solid #fff;
+ } 
+ .SecondPage .precription_validation{
+  
+    display:flex;
+    justify-content:flex-start;
+    align-items: center;
+    padding:12px;
+ }
+ 
+ .SecondPage .precription_validation div{
+     
+     background: rgb(245, 3, 3);
+     border-radius: 15px;
+     color:#fff;
+     font-style: normal;
+     font-weight: bold;
+     font-size: 14px;
+     width: 156px;
+     padding: 8px;
+     text-align: center;
+     
+ }
+ .SecondPage .sections{
+     display:flex;
+     justify-content: space-evenly;
+     align-items: center;
+     margin-top: 70px;
+ }
+ .SecondPage .sections div{
+     width: 95px;
+     height: 27px;    
+     background: #0F92BB;
+     border-radius: 12px;
+     font-style: normal;
+     font-weight: bold;
+     font-size: 16px;
+     color:#fff;
+     text-align: center;
+ }
