@@ -5,7 +5,7 @@ import "./cumMedical.css"
 function CumDetails() {
     return (
       
-         <div className="cumDetails"> 
+         <div className="cumMedicine"> 
             <div className="content">
             <p>Allergic Medicine 1</p>
             </div>

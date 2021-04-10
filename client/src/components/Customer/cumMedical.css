@@ -1,10 +1,10 @@
-.cumDetails
+.cumMedicine
 {
     padding: 2% 2%;
     margin-top: 10px;
 }
 
-.cumDetails .content 
+.cumMedicine .content 
 {
     height: 30px;    
     background: #C1FFCF;
@@ -16,7 +16,7 @@
     margin-top:40px;
     text-align: center;
 }
-.cumDetails .content p
+.cumMedicine .content p
 {
     line-height:4px;
     font-style: normal;
@@ -24,7 +24,7 @@
     font-size: 14px;
     color: #000000;
 }
-.cumDetails .button
+.cumMedicine .button
 {
     display: flex;
     flex-direction: column;
@@ -32,7 +32,7 @@
     align-items: center;
     margin-top: 100px;
 }
-.cumDetails .button button
+.cumMedicine .button button
 {
     border:0px solid;
     width: 150px;

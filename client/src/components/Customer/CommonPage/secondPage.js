@@ -1,7 +1,7 @@
 import React from "react";
 import "./secondpage.css";
 
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const DetailsSec=()=>{
     return(
@@ -21,10 +21,22 @@ const DetailsSec=()=>{
         </div>
         <nav className="sections">
            
-               <div>Medicine</div>
+            <div>
+                <Link to='/customer/medicine' >
+                    Medicine
+                </Link>
+            </div>
     
             <div>
-                reminder
+                <Link to='/customer/details'>
+                    Details
+                </Link>
+            </div>
+
+            <div>
+                <Link to='/customer/calender'>
+                    Reminder
+                </Link>
             </div>
 
         </nav>

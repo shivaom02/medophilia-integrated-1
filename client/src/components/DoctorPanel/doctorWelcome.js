@@ -1,6 +1,6 @@
 import React from 'react'
-import "./welcome.css"
-import Hospital from './hospital.PNG'
+import "../Welcome/welcome.css"
+import Hospital from '../Welcome/hospital.PNG'
 
 import { Link } from 'react-router-dom';
 
@@ -17,13 +17,9 @@ function Newlog() {
               <input type="password" placeholder="Password" required autoComplete ="off" className="username2"/>
              
               <button type="submit">
-                  <Link to='/admin/showDetails'>Login</Link>
+                  <Link to='/doctor/welcome'>Login</Link>
               </button>
               
-              <button type="submit">
-                  <Link to='/admin/registerDoctor'>Sign Up</Link>
-              </button>
-
           </form>
       </div>
       </div>

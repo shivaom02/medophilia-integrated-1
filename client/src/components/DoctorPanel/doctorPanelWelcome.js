@@ -1,6 +1,8 @@
 import React from 'react'
 import "./doctorPanelWelcome.css"
-import Hospital from './hospital.PNG'
+import Hospital from '../Welcome/hospital.PNG'
+
+import { Link } from 'react-router-dom';
 
 function Newlog() {
     return (
@@ -14,7 +16,12 @@ function Newlog() {
               <input type="email" placeholder="Enter patients name" className="username1"/>
                <p>OR</p>
               <input type="password" placeholder="Enter patients Id" required autoComplete ="on" className="username2"/>
-              <button type="submit">Log In</button>
+              
+              <button type="submit">
+                  <Link to='/doctor/patient' >
+                      Log In
+                  </Link>
+              </button>
           </form>
       </div>
       </div>

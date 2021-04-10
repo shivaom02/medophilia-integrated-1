@@ -1,7 +1,7 @@
 import React from "react";
 import banner from "../assets/banner.svg";
 
-// import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import "./signIn.css"
 
@@ -20,7 +20,9 @@ const Registration=()=>{
                     <label for="checkit" >Remember me</label>
                 </div>
                    <button>
-                      Sign In
+                      <Link to='/customer/details'>
+                          Sign In
+                      </Link>
                    </button>
             </div>
             <div className="dividor">
@@ -37,7 +39,9 @@ const Registration=()=>{
             <div className="options">
         
                    <button>
-                      Login using Google
+                      <Link to='/customer/details'>
+                         Login using Google
+                      </Link>
                    </button>
              
             </div>
