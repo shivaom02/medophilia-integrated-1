@@ -1,0 +1,81 @@
+* {
+    box-sizing: border-box;
+  }
+  .DoctorlogIn .imgBox img
+  {
+    position: relative ;
+    z-index: -1;
+  }
+  .DoctorlogIn .head
+  {
+    text-align: center;
+    z-index: 9;
+    transform: translateY(100px);
+    font-size: 3rem;
+    font-weight: 700;
+    color: #2922b6;
+  }
+  .DoctorlogIn .formDiv
+  {
+    text-align: center;
+    z-index: 9;
+    align-items: center;
+    transform: translateY(-600px);
+    margin-left: 30%;
+  }
+  .DoctorlogIn .formDiv .username1
+  {
+    width: 650px;
+    border: 3px solid #17e2b6;
+    border-radius: 100px;
+    height: 45px;
+    background-color: #DDDDDD;
+    text-align:center ;
+    margin-right: 100px;
+  }
+  .DoctorlogIn .formDiv .username2
+  {
+    width: 650px;
+    border: 3px solid #17e2b6;
+    border-radius: 100px;
+    height: 45px;
+    background-color: #DDDDDD;;
+    text-align:center;
+    margin-left: 70px;
+  }
+  .DoctorlogIn .formDiv p
+  {
+      font-weight: 600;
+      margin-left: -100px;
+  }
+  .DoctorlogIn .formDiv ::placeholder
+  {
+      font-size: .90rem;
+      font-weight: 550;
+      
+  }
+  .DoctorlogIn .formDiv  button
+  {
+    height: 30px;
+    width: 170px;
+    transform: translate(-420px , 100px);
+    background-color: skyblue;
+    color: white;
+    padding-bottom: 30px;
+    padding-top: 10px;
+    border-radius: 10px;
+    text-align: center;
+    border: 5px solid skyblue;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  .DoctorlogIn .formDiv  button:hover
+  {
+     background-color:darkblue;
+     transition: 0.2s;
+     border : 5px solid darkblue;
+  }
+ .DoctorlogIn .formDiv  button:active
+  {
+    background-color: red;
+  }
