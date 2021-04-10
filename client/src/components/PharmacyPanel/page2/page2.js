@@ -9,7 +9,7 @@ const ScaneOr=()=>{
     return(
     <div className="registration">
         <div className="imgbox">
-            <img src={banner}/>
+            <img src={banner} alt='Banner Pic' />
         </div>
         <div className="title">
             <h2>Ratna Pharmacy</h2>

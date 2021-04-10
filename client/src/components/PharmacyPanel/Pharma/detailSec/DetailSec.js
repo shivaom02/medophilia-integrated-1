@@ -9,7 +9,7 @@ const DetailsSec=()=>{
     return(
     <div className="DetailsSec">
         <div className="doctor">
-            <img  src={img}/>
+            <img  src={img} alt='Doctor Pic' />
             <div className="content">
                     <p>Dr Namita Das</p>
                     <p>Xyz Hospital</p>
@@ -22,7 +22,7 @@ const DetailsSec=()=>{
               </div>
         </div>
         <div className="user">
-             <img src={img} />
+             <img src={img} alt='User Pic' />
              <div className="content">
                         <p>Dr Namita Das</p>
                         <p>Xyz Hospital</p>

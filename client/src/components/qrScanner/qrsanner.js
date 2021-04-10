@@ -15,7 +15,7 @@ function Qrsanner() {
         <div class="right">
 
        {/* <image></image> */}
-       <img src={image}/>
+       <img src={image} alt='Scan Pic' />
         </div>
     </div>
     <div class="QRcodeMainprint">

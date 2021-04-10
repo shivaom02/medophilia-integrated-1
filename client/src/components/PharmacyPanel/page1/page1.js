@@ -8,7 +8,7 @@ const Registration=()=>{
     return(
     <div className="registration">
         <div className="imgbox">
-            <img src={banner}/>
+            <img src={banner} alt='Banner Pic' />
         </div>
         <form >
             <input className="input_first" placeholder="Username / Email" />
