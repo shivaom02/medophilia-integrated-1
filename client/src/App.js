@@ -31,6 +31,8 @@ import Registration from './components/Customer/signIn';
 import Signup from './components/Customer/signup';
 
 import Admin_Sign_Up from './components/AdminPanel/Admin_sign_up';
+
+import StartingPage from "./components/AdminPanel/StartingPage";
  
 function App() {
 
@@ -38,14 +40,16 @@ function App() {
   
        <Router>
                <Switch> 
-                    <Route exact path='/' component={Page1}/>
+
+                    <Route exact path='/' component={StartingPage}/>
+                    <Route exact path='/phrama/login' component={Page1}/>
                     
                     <Route path='/page2' component={Page2}/>
 
                     <Route path='/index' component={Index}/>
 
                     <Route path='/scanner' component={Qrsanner}/>
-
+                    
                     <Route exact path='/admin' component={Welcome} />
 
                     <Route exact path='/admin_sign_up' component={Admin_Sign_Up} />
@@ -60,15 +64,16 @@ function App() {
 
                     <Route path='/customer_signIn' component={CustomerSignIn} />
 
+                    <Route exact path='/cutomer_signup' component={Signup} />
+
                     <Route exact path='/doctor' component={DWelcome}/>
 
                     <Route path='/doctor/welcome' component={DoctorWelcome}/>
 
                     <Route path='/doctor/patient' component={Patient}/>
 
-                    <Route exact path='/signin' component={Registration} />
 
-                    <Route exact path='/signup' component={Signup} />
+                    
 
                </Switch>
         </Router>

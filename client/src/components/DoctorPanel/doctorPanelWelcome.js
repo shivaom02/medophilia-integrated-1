@@ -1,10 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import "./doctorPanelWelcome.css"
 import Hospital from '../Welcome/hospital.PNG'
+import axios from "axios";
 
-import { Link } from 'react-router-dom';
+import { Link,useHistory } from 'react-router-dom';
 
 function Newlog() {
+    const history=useState("");
+    const [email,setEmail]=useState("");
+    const [password,setPassword]=useState("");
+    const SignInDoc=()=>{
+
+    }
     return (
         <div className= "DoctorlogIn">
          <div className="head">DOCTOR NAME</div>
@@ -17,10 +24,9 @@ function Newlog() {
                <p>OR</p>
               <input type="password" placeholder="Enter patients Id" required autoComplete ="on" className="username2"/>
               
+              {/* /doctor/patient */}
               <button type="submit">
-                  <Link to='/doctor/patient' >
-                      Log In
-                  </Link>
+                      Enter
               </button>
           </form>
       </div>
