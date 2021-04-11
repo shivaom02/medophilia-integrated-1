@@ -14,7 +14,7 @@ const CustomerRouter = () => {
             <Router>
                <DetailsSec />
                <Switch> 
-                    <Route path='/customer/details' component={CumDetails}/>
+                    <Route exact path='/customer' component={CumDetails}/>
 
                     <Route path='/customer/medicine' component={CumMedicine}/>
 

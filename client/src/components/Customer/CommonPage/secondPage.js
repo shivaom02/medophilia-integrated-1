@@ -28,7 +28,7 @@ const DetailsSec=()=>{
             </div>
     
             <div>
-                <Link to='/customer/details'>
+                <Link to='/customer'>
                     Details
                 </Link>
             </div>

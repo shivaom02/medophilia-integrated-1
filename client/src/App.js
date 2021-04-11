@@ -8,13 +8,23 @@ import Qrsanner from './components/qrScanner/qrsanner';
 
 import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
 
-import AdminPanelRouter from './components/AdminPanel/AdminPanelRouter';
-
 import Customer from './components/Customer/customerRouter';
 
 import CustomerSignIn from './components/Customer/signIn';
 
-import DoctorRouter from './components/DoctorPanel/doctorRouter';
+import Welcome from './components/Welcome/welcome';
+
+import DoctorShowDet from './components/AdminPanel/doctorShowDet';
+
+import RegisterDoctor from './components/registers/register_doctor';
+
+import RegisterPharmacy from './components/registers/PharmacyRegister';
+
+import DWelcome from './components/DoctorPanel/doctorWelcome';
+
+import DoctorWelcome from './components/DoctorPanel/doctorPanelWelcome';
+
+import Patient from './components/DoctorPanel/Patient_name';
 
 function App() {
 
@@ -27,15 +37,26 @@ function App() {
                     <Route path='/page2' component={Page2}/>
 
                     <Route path='/index' component={Index}/>
+
                     <Route path='/scanner' component={Qrsanner}/>
 
-                    <Route exact path='/admin' component={AdminPanelRouter} />
+                    <Route exact path='/admin' component={Welcome} />
 
-                    <Route exact path='/customer' component={CustomerSignIn} />
+                    <Route path='/admin/showDetails' component={DoctorShowDet} />
+                   
+                    <Route path='/admin/registerDoctor' component={RegisterDoctor} />
 
-                    <Route path='/customer/details' component={Customer}/>
+                    <Route path='/admin/registerPharmacy' component={RegisterPharmacy} />
 
-                    <Route exact path='/doctor' component={DoctorRouter} />
+                    <Route path='/customer' component={Customer}/>
+
+                    <Route path='/customer_signIn' component={CustomerSignIn} />
+
+                    <Route exact path='/doctor' component={DWelcome}/>
+
+                    <Route path='/doctor/welcome' component={DoctorWelcome}/>
+
+                    <Route path='/doctor/patient' component={Patient}/>
                </Switch>
         </Router>
 
