@@ -26,6 +26,9 @@ import DoctorWelcome from './components/DoctorPanel/doctorPanelWelcome';
 
 import Patient from './components/DoctorPanel/Patient_name';
 
+import Registration from './components/Customer/signIn';
+import Signup from './components/Customer/signup';
+
 function App() {
 
   return (
@@ -57,6 +60,11 @@ function App() {
                     <Route path='/doctor/welcome' component={DoctorWelcome}/>
 
                     <Route path='/doctor/patient' component={Patient}/>
+
+                    <Route exact path='/signin' component={Registration} />
+
+                    <Route exact path='/signup' component={Signup} />
+
                </Switch>
         </Router>
 
