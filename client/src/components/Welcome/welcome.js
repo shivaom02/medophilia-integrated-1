@@ -21,7 +21,7 @@ function Newlog() {
               </button>
               
               <button type="submit">
-                  <Link to='/admin/registerDoctor'>Sign Up</Link>
+                  <Link to='/admin_sign_up'>Sign Up</Link>
               </button>
 
           </form>

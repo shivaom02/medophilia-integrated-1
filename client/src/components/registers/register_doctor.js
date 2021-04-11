@@ -9,8 +9,7 @@ function register_doctor() {
            <div class="flex-container">
           <div class="flex-item-left">
               <div className="left_content">
-                  <p className="content">Add admin</p>
-                 
+        
                   <p className="content">
                   
                      <Link to='/admin/registerDoctor'>register a doctor</Link>

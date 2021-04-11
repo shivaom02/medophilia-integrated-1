@@ -1,15 +1,27 @@
 const route=require("express").Router();
+
 const pharmaController=require("../../controllers/Pharma/pharma");
+
 const {auth}=require("../../cutomMiddleware/auth");
+
 const Pharma =require("../../models/Pharma");
+
 route.post('/login', pharmaController.login_post);
+
 route.post('/register', pharmaController.register);
+
 route.get('/logout', auth("Pharma"), pharmaController.logout_get);
+
 route.get('/profile', auth("Pharma"), pharmaController.Profile);
+
 route.put("/edit_profile",auth("Pharma"),pharmaController.Edit_Profile);
+
 route.get("/transaction",auth("Pharma"),pharmaController.Transaction)
+
 route.get("/one_customer",auth("Pharma"),pharmaController.Cutomer_details);
+
 route.get("/all_customer",auth("Pharma"),pharmaController.All_cutomer);
+
 route.put("/qrcode",auth("Pharma"),pharmaController.qrcodeScanner);
 
 // testing 

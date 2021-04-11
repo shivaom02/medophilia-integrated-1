@@ -3,13 +3,13 @@ import './register_doctor.css'
 
 import { Link } from 'react-router-dom';
 
-function register_doctor() {
+function Register_doctor() {
     return (
         <div className="register">
            <div class="flex-container">
           <div class="flex-item-left">
               <div className="left_content">
-                  <p className="content">Add admin</p>
+    
                   <p className="content">
                   
                   <Link to='/admin/registerDoctor'>register a doctor</Link>
@@ -52,4 +52,4 @@ function register_doctor() {
     )
 }
 
-export default register_doctor
+export default Register_doctor

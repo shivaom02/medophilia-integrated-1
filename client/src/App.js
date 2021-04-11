@@ -27,8 +27,11 @@ import DoctorWelcome from './components/DoctorPanel/doctorPanelWelcome';
 import Patient from './components/DoctorPanel/Patient_name';
 
 import Registration from './components/Customer/signIn';
+
 import Signup from './components/Customer/signup';
 
+import Admin_Sign_Up from './components/AdminPanel/Admin_sign_up';
+ 
 function App() {
 
   return (
@@ -44,6 +47,8 @@ function App() {
                     <Route path='/scanner' component={Qrsanner}/>
 
                     <Route exact path='/admin' component={Welcome} />
+
+                    <Route exact path='/admin_sign_up' component={Admin_Sign_Up} />
 
                     <Route path='/admin/showDetails' component={DoctorShowDet} />
                    
