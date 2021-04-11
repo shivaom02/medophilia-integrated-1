@@ -43,7 +43,7 @@ const Signup=()=>{
         
                    <button>
                       <Link to='/customer/details'>
-                         Login using Google
+                         SignUp using Google
                       </Link>
                    </button>
              
