@@ -23,13 +23,13 @@
     justify-content: center;
 }
 
-.cusRegistration form .input_first{
+.cusRegistration form .input_second{
     font-size: .96rem;
     padding: 22px 14px;
     border:0 solid;
     background: linear-gradient(270deg, #6DE3FD 100%, #90B7FF 100%), #C4C4C4;
     border-radius: 36px;
-    margin-bottom: 10vh;
+   margin-bottom: 3vh;
     color: #000;
     outline: none;
 }

@@ -15,7 +15,8 @@ import Customer from './components/Customer/customerRouter';
 import CustomerSignIn from './components/Customer/signIn';
 
 import DoctorRouter from './components/DoctorPanel/doctorRouter';
-
+import Registration from './components/Customer/signIn';
+import Signup from './components/Customer/signup';
 function App() {
 
   return (
@@ -36,6 +37,8 @@ function App() {
                     <Route path='/customer/details' component={Customer}/>
 
                     <Route exact path='/doctor' component={DoctorRouter} />
+                    <Route exact path='/signin' component={Registration} />
+                    <Route exact path='/signup' component={Signup} />
                </Switch>
         </Router>
 
