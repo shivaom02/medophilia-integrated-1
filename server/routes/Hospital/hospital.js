@@ -1,28 +1,30 @@
 const route=require("express").Router();
 
-const pharmaController=require("../../controllers/Pharma/pharma");
+//pharma
+
+const pharmaController = require("../../controllers/Pharma/pharma");
+
+const docController = require("../../controllers/Doc/doctor");
+
+const hospitalController = require("../../controllers/Hospital/hospital");
 
 const {auth}=require("../../cutomMiddleware/auth");
 
 const Pharma =require("../../models/Pharma");
 
-route.post('/login', pharmaController.login_post);
+route.post('/register', hospitalController.register);
 
-route.post('/register', pharmaController.register);
+route.post('/log_in', hospitalController.login);
 
-route.get('/logout', auth("Pharma"), pharmaController.logout_get);
+route.get('/log_out',auth('Hospital'), hospitalController.logout);
 
-route.get('/profile', auth("Pharma"), pharmaController.Profile);
+//pharma
 
-route.put("/edit_profile",auth("Pharma"),pharmaController.Edit_Profile);
+route.post('/hospital/register',auth('Hospital'), pharmaController.register);
 
-route.get("/transaction",auth("Pharma"),pharmaController.Transaction)
+//doctor
 
-route.get("/one_customer",auth("Pharma"),pharmaController.Cutomer_details);
-
-route.get("/all_customer",auth("Pharma"),pharmaController.All_cutomer);
-
-route.put("/qrcode",auth("Pharma"),pharmaController.qrcodeScanner);
+route.post('/doctor/register', auth('Hospital') , docController.register );
 
 // testing 
 route.get("/all_test",async (req,res)=>{
