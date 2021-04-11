@@ -1,6 +1,5 @@
 const mongoose = require('mongoose')
 
-
 const hospitalSchema = new mongoose.Schema(
     {
         password: {
@@ -15,7 +14,12 @@ const hospitalSchema = new mongoose.Schema(
         phone:{
             type:Number
         }
-        
+        ,email:{
+            type:String
+        },
+        registrationId:{
+            type:String
+        }
     },
     {
         timestamps: true,
