@@ -15,6 +15,7 @@ function Newlog() {
            if(result.data.success==0){
                return alert("login error");
            }
+           localStorage.setItem("DocToken",result.data.token);
            history.push("/doctor/welcome")
             
         }catch(e){

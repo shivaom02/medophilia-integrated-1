@@ -50,7 +50,8 @@ exports.login = async (req, res, next) => {
     
         res.status(200).json({
             success:1,
-            result:hospital
+            result:hospital,
+            token:JWTtoken
         })
     } catch (e) {
         

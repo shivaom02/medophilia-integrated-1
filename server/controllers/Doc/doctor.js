@@ -28,7 +28,8 @@ exports.register = async (req, res, next) => {
         //     maxAge: 24 * 60 * 60 * 1000,
         //     httpOnly: false,
         // })
-        res.status(201).json(doc)
+        res.status(201).json(doc);
+         
     } catch (e) {
         
         console.log(e,"profile Docter");
@@ -42,6 +43,7 @@ exports.register = async (req, res, next) => {
 
 
 exports.login_post = async (req, res, next) => {
+    
     try {
         const { password, email } = req.body
         let doc = await Doctor.findByCredentials(email, password)
@@ -53,9 +55,11 @@ exports.login_post = async (req, res, next) => {
             httpOnly: false,
         })
     
+        console.log(req.cookies.resultAuth);
         res.status(200).json({
             success:1,
-            result:doc
+            result:doc,
+            token:JWTtoken
         })
     } catch (e) {
         

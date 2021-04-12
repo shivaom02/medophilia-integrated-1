@@ -22,6 +22,7 @@ app.use(
         saveUninitialized:false
     })   
 )
+
 app.use(cookieParser('secrect'));
 app.use(flash());
 app.use((req, res, next) => {

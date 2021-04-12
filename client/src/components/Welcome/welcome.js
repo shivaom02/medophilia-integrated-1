@@ -5,6 +5,7 @@ import axios from "axios";
 import { Link,useHistory } from "react-router-dom";
 
 function Newlog() {
+  
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const history=useHistory();
@@ -16,6 +17,7 @@ function Newlog() {
         if(result.data.success==0){
                 return alert("unable to login")
         }
+        localStorage.setItem("AdminToken",result.data.token);
         history.push("/admin/showDetails");
     }
     catch (e){

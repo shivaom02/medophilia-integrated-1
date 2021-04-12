@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect} from 'react'
 import './register_doctor.css'
 import axios from "axios";
 import { Link,useHistory } from 'react-router-dom';
@@ -16,8 +16,19 @@ function Register_doctor() {
     const [license,setLicense]=useState("");
     const [hospital,setHospital]=useState("");
     const history=useHistory();
-    const RegisterDoctor=async(e)=>{
-        e.preventDefault();
+    const [token,setToken]=useState(localStorage.getItem("AdminToken"));
+    const RegisterDoctor=async()=>{
+
+        useEffect(()=>{
+            setToken(localStorage.getItem("AdminToken"));
+            console.log(token);
+            if(token==undefined){
+                history.push("/");
+            }
+
+        },[token])
+        
+        
         try{
             if(password!==checkPassword){
                 return alert("wrong password");
@@ -32,12 +43,13 @@ function Register_doctor() {
                 license,
                 hospital,
             }
-            const result =await axios.post(`${window.location.protocol}//${window.location.hostname}:5000/doc/register`,data);
+            const result =await axios.post(`${window.location.protocol}//${window.location.hostname}:5000/doc/register`,data,{withCredentials:true});
             console.log(result);
             if(result.data.success==0){
 
                 return alert("Error");
             }
+
             
             alert("Registered successfully");
         }

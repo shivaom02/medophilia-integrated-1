@@ -4,7 +4,7 @@ import axios from "axios";
 import { Link ,useHistory} from 'react-router-dom';
 
 import "./page1.css"
-const RegisterPharma= async()=>{
+const RegisterPharmas= ()=>{
     
     const [email,setEmail]=useState("");
     const [password,setPassword]=useState("");
@@ -13,13 +13,12 @@ const RegisterPharma= async()=>{
         e.preventDefault();
         const history=useHistory();
         try{
-            const result= await axios.post(`${window.location.protocol}//${window.location.hostname}/5000/doc/login`,{email,password})
+            const result= await axios.post(`${window.location.protocol}//${window.location.hostname}:5000/pharma/login`,{email,password})
             if(result.data.success==0){
                 return alert("Unable to signin");
             }
-
+            localStorage.setItem("PharmaToken",result.data.token);
             history.push("/page2");
-            
         }
         catch(e){
             alert(e)
@@ -68,4 +67,4 @@ const RegisterPharma= async()=>{
     </div>)
 }
 
-export default RegisterPharma;
+export default RegisterPharmas;

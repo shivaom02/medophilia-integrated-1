@@ -39,7 +39,8 @@ route.get("/all_test",async (req,res)=>{
     catch(e){
         console.log(e,"error");
     }
-})
+});
+
 route.get("/test",auth("Doctor"),(req,res,next)=>{
     console.log(req.userInfo);
     res.json({

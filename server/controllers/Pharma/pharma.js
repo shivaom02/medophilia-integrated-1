@@ -53,10 +53,12 @@ exports.login_post = async (req, res, next) => {
             maxAge: 24 * 60 * 60 * 1000,
             httpOnly: false,
         })
-    
+        console.log(req.cookies.resultAuth);
+        
         res.status(200).json({
             success:1,
-            result:pharma
+            result:pharma,
+            token:JWTtoken
         })
     } catch (e) {
         

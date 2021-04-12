@@ -1,9 +1,19 @@
-import React from 'react'
+import React,{useEffect, useState} from 'react'
 import './doctorShowDet.css';
 
-import {Link} from 'react-router-dom';
+import {Link,useHistory} from 'react-router-dom';
 
-function register_doctor() {
+function Register_doctor() {
+    const [token,setToken]=useState(localStorage.getItem("AdminToken"));
+    const history=useHistory();
+    useEffect(() => {
+        setToken(localStorage.getItem("AdminToken"));
+        
+        if(token==undefined){
+            history.push("/");
+        }
+        
+    }, [token])
     return (
         <div className="docShowDat">
            <div class="flex-container">
@@ -33,4 +43,4 @@ function register_doctor() {
     )
 }
 
-export default register_doctor
+export default Register_doctor

@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useEffect,useState} from "react";
 import banner from "../../assets/banner.svg";
 
 import "./page2.css"

@@ -28,7 +28,8 @@ const auth = (role)=>{
                         
             }
             
-            const token = req.cookies.resultAuth
+            // const token = req.cookies.resultAuth
+            const token =req.headers
             console.log(token);
             const roleInfo = jwt.verify(token, "secrect")
             
