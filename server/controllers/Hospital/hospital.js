@@ -15,7 +15,7 @@ exports.register = async (req, res, next) => {
         })
         const JWTtoken = await hospital.generateAuthToken()
 
-        hospital = await hospital.toJSON()
+        hospital = await hospital.toJSON();
 
         res.cookie('resultAuth', JWTtoken, {
             maxAge: 24 * 60 * 60 * 1000,
@@ -39,7 +39,7 @@ exports.login = async (req, res, next) => {
 
         let hospital = await Hospital.findByCredentials(email, password)
         
-        const JWTtoken = await hospital.generateAuthToken()
+        const JWTtoken = await hospital.generateAuthToken();
 
         hospital = hospital.toJSON()
 
@@ -64,7 +64,7 @@ exports.login = async (req, res, next) => {
 
 exports.logout = async (req, res, next) => {
     try {
-        
+        console.log("jt")
         res.clearCookie('resultAuth');
        
         res.status(200).json({

@@ -71,8 +71,9 @@ function App() {
                     <Route path='/doctor/welcome' component={DoctorWelcome}/>
 
                     <Route path='/doctor/patient' component={Patient}/>
-
-
+          
+                    
+                    
                     
 
                </Switch>

@@ -11,7 +11,7 @@ function Newlog() {
   const Login = async (e) => {
       e.preventDefault();
     try{
-        const result = await axios.post("http://localhost:5000/hospital/login",{email,password});
+        const result = await axios.post("http://localhost:5000/admin/log_in",{email,password});
         console.log(result);
         if(result.data.success==0){
                 return alert("unable to login")

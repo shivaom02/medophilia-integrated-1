@@ -16,12 +16,13 @@ app.use(
         secret:"secrect",
         cookie:{
             maxAge:400000000,
+            httpOnly:true
         },
         resave:false,
         saveUninitialized:false
     })   
 )
-app.use(cookieParser('secret'))
+app.use(cookieParser('secrect'));
 app.use(flash());
 app.use((req, res, next) => {
     res.locals.flashMessages = req.flash()

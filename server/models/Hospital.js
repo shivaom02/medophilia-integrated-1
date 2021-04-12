@@ -1,4 +1,7 @@
 const mongoose = require('mongoose')
+const crypto=require("crypto");
+const jwt = require('jsonwebtoken')
+const bcrypt = require('bcrypt')
 
 const hospitalSchema = new mongoose.Schema(
     {

@@ -11,7 +11,7 @@ function Newlog() {
     const DocLogin=async (e)=>{
         try{
             e.preventDefault();
-           const result= await axios.post(`${window.location.protocol}//${window.location.hostname}/5000/doc/login`,{email,password})
+           const result= await axios.post(`${window.location.protocol}//${window.location.hostname}:5000/doc/login`,{email,password})
            if(result.data.success==0){
                return alert("login error");
            }

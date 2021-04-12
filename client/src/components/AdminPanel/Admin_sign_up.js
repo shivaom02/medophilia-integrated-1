@@ -1,7 +1,7 @@
 import React,{useEffect, useState} from 'react'
 
 import { Link ,useHistory} from 'react-router-dom';
-
+import axios from "axios";
 import '../registers/register_doctor.css'
 
 const Admin_sign_up = () => {
@@ -9,7 +9,32 @@ const Admin_sign_up = () => {
     const [name,setName]=useState("");
     const [email,setEmail]=useState("");
     const [password,setPassword]=useState("");
+    const [phone,setPone]=useState("");
+    const [CheckPassword,setCheckPassword]=useState("");
     const [registrationId,setRegistrationId]=useState("");
+    const AdminLogin= async(e)=>{
+        e.preventDefault();
+        try{
+
+            if(password!=CheckPassword){
+                return alert("Password does not match");
+            }
+            const data={
+                name,email,password,registrationId,phone
+            }
+            
+            const result =await axios.post(`${window.location.protocol}//${window.location.hostname}:5000/admin/register`,data);
+            console.log(result);
+            if(result.data.success==0){
+                return alert("Unable to login");
+
+            }
+            history.push("/admin/showDetails");
+        }
+        catch(e){
+               alert(e); 
+        }
+    }
     return (
         <div className="register">
         <div class="flex-container">
@@ -22,16 +47,19 @@ const Admin_sign_up = () => {
 
             <input onChange={(e)=>{setEmail(e.target.value)}} type="email" id="lname"   placeholder="enter your email"/>
 
-            <input  onChange={(e)=>{setName(e.target.value)}} type="password" id="lname"   placeholder="give password"/>
+            <input  onChange={(e)=>{setPassword(e.target.value)}} type="password" id="lname"   placeholder="give password"/>
 
-            <input type="password" id="lname"   placeholder="re-enter password"/>
+            <input onChange={(e)=>{setCheckPassword(e.target.value)}} type="password" id="lname"   placeholder="re-enter password"/>
 
-            <input type="text" id="lname"  placeholder="Registration Id"/>
+            <input onChange={(e)=>{setRegistrationId(e.target.value)}} type="text" id="lname"  placeholder="Registration Id"/>
 
-            <button type="submit">
-                <Link to='/admin/showDetails'>
+            <input onChange={(e)=>{setPone(e.target.value)}} type="number" id="lname"  placeholder="Phone Number"/>
+
+{/* admin/showDetails */}
+            <button type="submit" onClick={(e)=>{AdminLogin(e)}}>
+                
                     Submit
-                </Link>
+                
             </button>
             
             </div>

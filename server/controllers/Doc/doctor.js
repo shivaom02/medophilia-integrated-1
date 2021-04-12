@@ -23,11 +23,11 @@ exports.register = async (req, res, next) => {
             license
         })
         const JWTtoken = await doc.generateAuthToken()
-        doc = await doc.toJSON()
-        res.cookie('resultAuth', JWTtoken, {
-            maxAge: 24 * 60 * 60 * 1000,
-            httpOnly: false,
-        })
+        doc = await doc.toJSON();
+        // res.cookie('resultAuth', JWTtoken, {
+        //     maxAge: 24 * 60 * 60 * 1000,
+        //     httpOnly: false,
+        // })
         res.status(201).json(doc)
     } catch (e) {
         
@@ -46,7 +46,8 @@ exports.login_post = async (req, res, next) => {
         const { password, email } = req.body
         let doc = await Doctor.findByCredentials(email, password)
         const JWTtoken = await doc.generateAuthToken()
-        doc = doc.toJSON()
+        doc = doc.toJSON();
+
         res.cookie('resultAuth', JWTtoken, {
             maxAge: 24 * 60 * 60 * 1000,
             httpOnly: false,

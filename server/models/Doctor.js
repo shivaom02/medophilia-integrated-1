@@ -99,9 +99,10 @@ doctorSchema.methods.checkAndUpdate=async function(currentPassword,newPassword){
    }
 }
 doctorSchema.statics.findByCredentials = async function (email, passowrd) {
-    
+    console.log(email);
     const doc = await Doctor.findOne({email:email})
     
+    console.log(doc,"Jitul Teron")
     
     if (!doc) {
         throw new Error('Unable to login')
