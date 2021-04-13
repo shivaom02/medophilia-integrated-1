@@ -19,7 +19,9 @@ import Registration from './components/Customer/signIn';
 import Signup from './components/Customer/signup';
 import Admin_Sign_Up from './components/AdminPanel/Admin_sign_up';
 import StartingPage from "./components/AdminPanel/StartingPage";
- 
+
+import Login_SuperAdmin from './components/SuperAdmin/SuperAdmin_login';
+import Register_SuperAdmin from './components/SuperAdmin/SuperAdmin_register';
 
 import DoctorPrivateRoute from './routes/DoctorPrivateRoute';
 import HospitalPrivateRoute from './routes/HospitalPrivateRoute';
@@ -75,9 +77,14 @@ function App() {
                     <PharmaState>
                          <UserState>
                          <Router>
+
                <Switch> 
 
                     <Route exact path='/' component={StartingPage}/>
+
+                    <Route exact path='/superadmin/Login' component={Login_SuperAdmin} />
+
+                    <Route exact path='/superadmin/register' component={Register_SuperAdmin} />
                     
                     <Route exact path='/phrama/login' component={Page1}/>
                     
@@ -88,8 +95,6 @@ function App() {
                     <PharmachyPrivateRoute path='/scanner' component={Qrsanner}/>
                     
                     <Route exact path='/admin' component={Welcome} />
-
-                    <Route exact path='/superadmin' component={Login_SuperAdmin} />
 
                     <HospitalPrivateRoute path='/admin/showDetails' component={DoctorShowDet} />
                    
@@ -110,6 +115,7 @@ function App() {
                     <DoctorPrivateRoute path='/doctor/patient' component={Patient}/>
           
                </Switch>
+               
              </Router>
 
                          </UserState>
