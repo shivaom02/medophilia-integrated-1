@@ -12,13 +12,13 @@ import Customer from './components/Customer/customerRouter';
 
 import CustomerSignIn from './components/Customer/signIn';
 
-import Welcome from './components/Welcome/welcome';
+import Welcome from './components/AdminPanel/welcome';
 
 import DoctorShowDet from './components/AdminPanel/doctorShowDet';
 
-import RegisterDoctor from './components/registers/register_doctor';
+import RegisterDoctor from './components/AdminPanel/register_doctor';
 
-import RegisterPharmacy from './components/registers/PharmacyRegister';
+import RegisterPharmacy from './components/AdminPanel/PharmacyRegister';
 
 import DWelcome from './components/DoctorPanel/doctorWelcome';
 

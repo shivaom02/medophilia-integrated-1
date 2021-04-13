@@ -2,7 +2,7 @@ import React,{useEffect, useState} from 'react'
 
 import { Link ,useHistory} from 'react-router-dom';
 import axios from "axios";
-import '../registers/register_doctor.css'
+import './register_doctor.css'
 
 const Admin_sign_up = () => {
     const history=useHistory();

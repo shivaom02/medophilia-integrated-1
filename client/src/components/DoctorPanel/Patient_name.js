@@ -1,6 +1,8 @@
 import React from 'react'
 import './Patient_name.css'
-import Hospital from '../Welcome/hospital.PNG'
+
+import Hospital from '../AdminPanel/hospital.PNG'
+
 function Patient_name() {
     return (
         <div>

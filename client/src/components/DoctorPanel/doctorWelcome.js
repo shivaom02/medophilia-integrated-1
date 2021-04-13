@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
-import "../Welcome/welcome.css"
-import Hospital from '../Welcome/hospital.PNG'
+import "../AdminPanel/welcome.css"
+import Hospital from '../AdminPanel/hospital.PNG'
+
 import axios from "axios";
 import { Link ,useHistory} from 'react-router-dom';
 
