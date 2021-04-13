@@ -3,7 +3,7 @@ import './register_doctor.css'
 import axios from "axios";
 import { Link,useHistory } from 'react-router-dom';
 
-function Register_doctor() {
+const Register_doctor = () => {
             
     const [name,setName]=useState("");
     const [email,setEmail]=useState("");
@@ -20,9 +20,13 @@ function Register_doctor() {
     const RegisterDoctor=async()=>{
 
         useEffect(()=>{
+        
             setToken(localStorage.getItem("AdminToken"));
+        
             console.log(token);
+        
             if(token==undefined){
+        
                 history.push("/");
             }
 
@@ -44,14 +48,17 @@ function Register_doctor() {
                 hospital,
             }
             const result =await axios.post(`${window.location.protocol}//${window.location.hostname}:5000/doc/register`,data,{withCredentials:true});
+            
             console.log(result);
+            
             if(result.data.success==0){
 
                 return alert("Error");
             }
-
             
             alert("Registered successfully");
+
+            history.push("/admin/showDetails");
         }
         catch(e){
             console.log(e);
@@ -118,10 +125,6 @@ function Register_doctor() {
                
 
                <input onChange={(e)=>{setLicense(e.target.value)}} type="text" id="lname" placeholder="License"/>
-
-
-
-               setHospital
 
 {/* /admin/showDetails */}
                <button type="submit" onClick={(e)=>{RegisterDoctor(e)}}>

@@ -72,9 +72,8 @@ exports.login_post = async (req, res, next) => {
 }
 
 exports.logout_get = async (req, res, next) => {
-    try {
-        
-        res.clearCookie('resultAuth');
+    try {   
+       // res.clearCookie('resultAuth');
         res.status(200).json({
             success:1,
             message:"Logout successfully"
@@ -290,7 +289,9 @@ exports.Make_Prescription=async (req,res,next)=>{
         let newdata=await qrcode.toDataURL(data);
 
         newdata=newdata.split(",")[1];
+        
         console.log(newdata,"qrcode is here");
+
         const doctor=await Prescription.create({
             doc:req.userInfo.role._id,
             patient:patient._id,

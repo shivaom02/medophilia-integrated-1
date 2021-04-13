@@ -6,12 +6,14 @@ import {Link,useHistory} from 'react-router-dom';
 function Register_doctor() {
     const [token,setToken]=useState(localStorage.getItem("AdminToken"));
     const history=useHistory();
+  
     useEffect(() => {
-        setToken(localStorage.getItem("AdminToken"));
+  
+        // setToken(localStorage.getItem("AdminToken"));
         
-        if(token==undefined){
-            history.push("/");
-        }
+        // if(token==undefined){
+        //     history.push("/");
+        // }
         
     }, [token])
     return (

@@ -7,29 +7,40 @@ const jwt = require("jsonwebtoken");
 const auth = (role)=>{
     return async (req, res, next) => {
         
-        let Role;
+        let Role,token;
         try {
-            
+            //AuthorizationDoctor AuthorizationPharma  AuthorizationSuperAdmin AuthorizationAdmin
             switch(role){
                 case "User":
                     Role=User;
+                    token = req.headers('AuthorizationUser')
                     break;
                 case "Doctor":
                     Role=Doctor;
+                    token = req.headers('AuthorizationDoctor')
                     break;
                 case "Pharma":  
                     Role=Pharma;
+                    token = req.headers('AuthorizationPharma')
                     break;
                 case "Hospital":
-                    Role=Hospital    
+                    Role=Hospital 
+                    token = req.headers('AuthorizationAdmin')   
+                    break;
+                case "SuperAdmin":
+                    Role=SuperAdmin 
+                    token = req.headers('AuthorizationSuperAdmin')   
                     break;
                 default:
                     return;    
                         
             }
             
+            if(!token){
+                res.status(401).json({msg:'No token, access Denied'})
+            }
+
             // const token = req.cookies.resultAuth
-            const token =req.headers
             console.log(token);
             const roleInfo = jwt.verify(token, "secrect")
             
@@ -48,6 +59,7 @@ const auth = (role)=>{
             //Remove token
             req.userInfo = {
                 role:user,
+                token:token
             }
             next()
         } catch (e) {

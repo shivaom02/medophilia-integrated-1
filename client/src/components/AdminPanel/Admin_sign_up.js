@@ -12,6 +12,7 @@ const Admin_sign_up = () => {
     const [phone,setPone]=useState("");
     const [CheckPassword,setCheckPassword]=useState("");
     const [registrationId,setRegistrationId]=useState("");
+    
     const AdminLogin= async(e)=>{
         e.preventDefault();
         try{
