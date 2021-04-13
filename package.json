@@ -4,7 +4,8 @@
   "description": "A doctor, patient friendly medical app",
   "main": "server.js",
   "scripts": {
-    "server": "nodemon server.js",
+    "start": "node server.js",
+    "server": "nodemon app.js --prefix server",
     "client": "npm start --prefix client",
     "devStart": "concurrently \"npm run server\" \"npm run client\""
   },

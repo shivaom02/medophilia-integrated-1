@@ -33,6 +33,38 @@ import DoctorState from './context/doctorAuthContexts/authState';
 import PharmaState from './context/pharmaAuthContexts/authState';
 import UserState from './context/userAuthContexts/authState';
 
+import { setTokenAdmin,
+        setTokenDoctor,
+        setTokenPharma,
+        setTokenSuperAdmin,
+        setTokenUser } from './utilsClient/setToken';
+
+if (localStorage.adminToken) {
+      
+     setTokenAdmin(localStorage.adminToken);
+}
+
+if (localStorage.superAdminToken) {
+      
+        setTokenAdmin(localStorage.superAdminToken);
+}
+
+if (localStorage.doctorToken) {
+      
+        setTokenAdmin(localStorage.doctorToken);
+}
+
+if (localStorage.userToken) {
+      
+        setTokenAdmin(localStorage.userToken);
+}
+
+if (localStorage.pharmaToken) {
+      
+        setTokenAdmin(localStorage.pharmaToken);
+}
+
+
 function App() {
 
   return (
@@ -57,7 +89,7 @@ function App() {
                     
                     <Route exact path='/admin' component={Welcome} />
 
-                    <Route exact path='/admin_sign_up' component={Admin_Sign_Up} />
+                    <Route exact path='/superadmin' component={Login_SuperAdmin} />
 
                     <HospitalPrivateRoute path='/admin/showDetails' component={DoctorShowDet} />
                    
@@ -67,18 +99,18 @@ function App() {
 
                     <UserPrivateRoute path='/customer' component={Customer}/>
 
-                    <Route path='/customer_signIn' component={CustomerSignIn} />
+                    <Route path='/admin/registerPharmacy' component={RegisterPharmacy} />
 
                     <UserPrivateRoute exact path='/cutomer_signup' component={Signup} />
 
-                    <Route exact path='/doctor' component={DWelcome}/>
+                    <Route path='/customer_signIn' component={CustomerSignIn} />
 
                     <DoctorPrivateRoute path='/doctor/welcome' component={DoctorWelcome}/>
 
                     <DoctorPrivateRoute path='/doctor/patient' component={Patient}/>
           
                </Switch>
-        </Router>
+             </Router>
 
                          </UserState>
                     </PharmaState>
