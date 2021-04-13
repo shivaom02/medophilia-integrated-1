@@ -25,10 +25,10 @@ exports.register = async (req, res, next) => {
         })
         const JWTtoken = await pharma.generateAuthToken()
         pharma = await pharma.toJSON()
-        res.cookie('resultAuth', JWTtoken, {
-            maxAge: 24 * 60 * 60 * 1000,
-            httpOnly: false,
-        })
+        // res.cookie('resultAuth', JWTtoken, {
+        //     maxAge: 24 * 60 * 60 * 1000,
+        //     httpOnly: false,
+        // })
         res.status(201).json(pharma);
 
     } catch (e) {
@@ -53,10 +53,12 @@ exports.login_post = async (req, res, next) => {
             maxAge: 24 * 60 * 60 * 1000,
             httpOnly: false,
         })
-    
+        console.log(req.cookies.resultAuth);
+        
         res.status(200).json({
             success:1,
-            result:pharma
+            result:pharma,
+            token:JWTtoken
         })
     } catch (e) {
         

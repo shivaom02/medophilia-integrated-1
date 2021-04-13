@@ -9,18 +9,21 @@ const flash =require("connect-flash");
 const connectionDB=require("./db/connection");
 // in use
 app.use(express.json());
+app.use(express.urlencoded({extended:false}));
 app.use(cors());
 app.use(
     session({
         secret:"secrect",
         cookie:{
             maxAge:400000000,
+            httpOnly:true
         },
         resave:false,
         saveUninitialized:false
     })   
 )
-app.use(cookieParser('secret'))
+
+app.use(cookieParser('secrect'));
 app.use(flash());
 app.use((req, res, next) => {
     res.locals.flashMessages = req.flash()

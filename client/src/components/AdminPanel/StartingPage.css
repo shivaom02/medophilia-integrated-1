@@ -1,0 +1,46 @@
+.entryPage
+{
+    background-color: rgb(53, 155, 199);
+    width: 100%;
+    height: 100vh;
+}
+.entryPage img
+{
+    margin: 20px;
+    border-radius: 10%;
+}
+.entryPage h1
+{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  color: white;
+}
+
+.entryPage .content
+{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+.entryPage .content p{
+    font-size:2rem;
+    font-weight: 400;
+    color: aliceblue;
+}
+
+.entryPage .content .select
+{
+    /* background-color:; */
+    height: 30px;
+    width: 20%;
+    border:2px solid white;
+}

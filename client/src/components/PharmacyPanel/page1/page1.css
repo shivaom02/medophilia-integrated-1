@@ -30,6 +30,8 @@
     background: linear-gradient(270deg, #213B6C 0%, #152443 96.69%), #C4C4C4;
     border-radius: 36px;
     margin-bottom: 10vh;
+    text-align: center;
+    color:#fff;
 }
 
 .registration form input:hover{

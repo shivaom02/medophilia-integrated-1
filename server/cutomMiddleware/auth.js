@@ -2,10 +2,11 @@ const User = require('../models/User');
 const Doctor=require("../models/Doctor");
 const Pharma=require("../models/Pharma");
 const Hospital =require("../models/Hospital");
-const jwt = require('jsonwebtoken');
+const jwt = require("jsonwebtoken");
 
 const auth = (role)=>{
     return async (req, res, next) => {
+        
         let Role;
         try {
             
@@ -21,18 +22,22 @@ const auth = (role)=>{
                     break;
                 case "Hospital":
                     Role=Hospital    
+                    break;
                 default:
                     return;    
                         
             }
             
-            const token = req.cookies.resultAuth
-            
+            // const token = req.cookies.resultAuth
+            const token =req.headers
+            console.log(token);
             const roleInfo = jwt.verify(token, "secrect")
+            
             // console.log(Role,"role model");
             // console.log(roleInfo._id,"role id");
             // console.log("resuts are ",await Role.findById(roleInfo._id));
             const user = await Role.findById({_id:roleInfo._id});
+            
             user.password=""
             if (!user) {
                 res.json({

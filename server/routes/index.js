@@ -5,14 +5,17 @@ const route = express.Router()
 const userRouter = require('./User/user')
 const docRouter=require("./Doctor/doctor");
 const pharmaRouter=require("./Pharma/pharma");
+const hospitalRouter = require('./Hospital/hospital');
+
 // const adminRouter = require('./admin')
 
 route.use('/user', userRouter);
 
 route.use('/doc', docRouter);
 
-route.use('/pharma',pharmaRouter)
+route.use('/pharma',pharmaRouter);
 
+route.use('/admin',hospitalRouter);
 
 // router.use('/admin', adminRouter)
 

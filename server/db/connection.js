@@ -1,10 +1,6 @@
 const mongoose = require('mongoose');
 function connectDB() {
-    var url = process.env.MONGO_URL
-    if (process.env.DB_MODE === 'local' || url === '' || !url) {
-        url = 'mongodb://localhost:27017/medoTest'
-        console.log('Attempting to connect to Local Mongodb at PORT 27017')
-    }
+    var url = 'mongodb+srv://exam_made_easy:bindass@165@cluster0.mlg92.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
     mongoose.connect(
         url,
         {
