@@ -1,6 +1,7 @@
 import React, { useState ,useEffect} from 'react'
 import "./doctorPanelWelcome.css"
-import Hospital from '../Welcome/hospital.PNG'
+
+import Hospital from '../AdminPanel/hospital.PNG'
 import axios from "axios";
 
 import { Link,useHistory } from 'react-router-dom';

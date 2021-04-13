@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
-function connectDB() {
-    var url = 'mongodb+srv://exam_made_easy:bindass@165@cluster0.mlg92.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
-    mongoose.connect(
+
+var url = 'mongodb+srv://exam_made_easy:bindass@165@cluster0.mlg92.mongodb.net/myFirstDatabase?retryWrites=true&w=majority'
+
+mongoose.connect(
         url,
         {
             useCreateIndex: true,
@@ -12,7 +13,4 @@ function connectDB() {
             if (err) console.log(err)
             else console.log('Database Connected!')
         }
-    )
-}
-
-module.exports = connectDB
+)

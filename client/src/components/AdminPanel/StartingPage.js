@@ -22,9 +22,7 @@ function FirstPage() {
             case "pharmacy":
                 setLink("phrama/login")
                 break;
-
         }
-        
     }, [option])
     return (
         <div className="entryPage">
