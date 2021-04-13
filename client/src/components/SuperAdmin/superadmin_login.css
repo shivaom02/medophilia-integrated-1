@@ -1,0 +1,87 @@
+* {
+  box-sizing: border-box;
+}
+
+/* .logo-container {
+  position: relative;
+  width: 15vw;
+  height: 10vh;
+  transform: translateY(10vh);
+}
+.logo-container img {
+  width: 100%;
+  height: 100%;
+} */
+
+.logIn .imgBox img
+{
+  position: relative ;
+  z-index: -1;
+  transform: translateY(-1000px);
+}
+.logIn .head
+{
+  text-align: center;
+  z-index: 9;
+  transform: translateY(100%);
+  font-size: 80px;
+  font-weight: 600;
+}
+.logIn .formDiv
+{
+  text-align: center;
+  z-index: 9;
+  transform: translateY(-1700%);
+}
+.logIn .formDiv .username1
+{
+  width: 30%;
+  border: 3px solid #17e2b6;
+  border-radius: 100px;
+  height: 45px;
+  background-color: #DDDDDD;
+  text-align:center ;
+  margin-right: 100px;
+  transform: translate(555px, 180px);
+}
+.logIn .formDiv .username2
+{
+  width: 30%;
+  border: 3px solid #17e2b6;
+  border-radius: 100px;
+  height: 45px;
+  background-color: #DDDDDD;;
+  text-align:center ;
+  transform: translate(0px, 250px);
+}
+.logIn .formDiv ::placeholder
+{
+    font-size: .90rem;
+    font-weight: 550;
+    
+}
+.logIn .formDiv  button
+{
+  height: 30px;
+  width: 170px;
+  transform: translate(-330px , 330px);
+  background-color: skyblue;
+  color: white;
+  padding-bottom: 30px;
+  padding-top: 10px;
+  border-radius: 10px;
+  text-align: center;
+  border: 5px solid skyblue;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.logIn .formDiv  button:hover
+{
+   background-color:darkblue;
+   transition: 0.2s;
+   border : 5px solid darkblue;
+}
+.logIn .formDiv  button:active
+{
+  background-color: red;
+}

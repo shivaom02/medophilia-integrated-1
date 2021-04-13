@@ -84,6 +84,36 @@
       background-color: #3958C7;
       cursor: pointer;
   }
+
+  
+.formDiv  button
+{
+  display: block;
+  height: 30px;
+  width: 170px;
+  margin: 0 auto;
+  background-color: skyblue;
+  color: white;
+  padding-bottom: 30px;
+  padding-top: 10px;
+  border-radius: 10px;
+  text-align: center;
+  border: 5px solid skyblue;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.formDiv  button:hover
+{
+   background-color:darkblue;
+   transition: 0.2s;
+   border : 5px solid darkblue;
+}
+.formDiv  button:active
+{
+  background-color: red;
+}
+
+
   
   /* Responsive layout - makes a one column-layout instead of two-column layout */
   @media (max-width: 800px) {
