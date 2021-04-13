@@ -2,7 +2,7 @@
   box-sizing: border-box;
 }
 
-/* .logo-container {
+.logo-container {
   position: relative;
   width: 15vw;
   height: 10vh;
@@ -11,15 +11,15 @@
 .logo-container img {
   width: 100%;
   height: 100%;
-} */
+}
 
-.logIn .imgBox img
+.SuperAdminlogIn .imgBox img
 {
-  position: relative ;
+  position: absolute ;
   z-index: -1;
   transform: translateY(-1000px);
 }
-.logIn .head
+.SuperAdminlogIn .head
 {
   text-align: center;
   z-index: 9;
@@ -27,13 +27,16 @@
   font-size: 80px;
   font-weight: 600;
 }
-.logIn .formDiv
+.SuperAdminlogIn .formDiv
 {
+  position: absolute;
+  width: 100%;
+  top: 35%;
+  left: -10%;
   text-align: center;
   z-index: 9;
-  transform: translateY(-1700%);
 }
-.logIn .formDiv .username1
+.SuperAdminlogIn .formDiv .username1
 {
   width: 30%;
   border: 3px solid #17e2b6;
@@ -44,7 +47,7 @@
   margin-right: 100px;
   transform: translate(555px, 180px);
 }
-.logIn .formDiv .username2
+.SuperAdminlogIn .formDiv .username2
 {
   width: 30%;
   border: 3px solid #17e2b6;
@@ -54,17 +57,20 @@
   text-align:center ;
   transform: translate(0px, 250px);
 }
-.logIn .formDiv ::placeholder
+.SuperAdminlogIn .formDiv ::placeholder
 {
     font-size: .90rem;
     font-weight: 550;
     
 }
-.logIn .formDiv  button
+.SuperAdminlogIn .formDiv  button
 {
+  position: relative;
+  margin-left: 62.5vw;
+  margin-top: 40vh;
   height: 30px;
   width: 170px;
-  transform: translate(-330px , 330px);
+  z-index: 9;
   background-color: skyblue;
   color: white;
   padding-bottom: 30px;
@@ -75,13 +81,13 @@
   font-size: 1.2rem;
   font-weight: 600;
 }
-.logIn .formDiv  button:hover
+.SuperAdminlogIn .formDiv  button:hover
 {
    background-color:darkblue;
    transition: 0.2s;
    border : 5px solid darkblue;
 }
-.logIn .formDiv  button:active
+.SuperAdminlogIn .formDiv  button:active
 {
   background-color: red;
 }
