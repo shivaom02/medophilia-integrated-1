@@ -40,7 +40,7 @@ const Registration=()=>{
         
                    <button>
                       <Link to='/customer/details'>
-                         Login using Google
+                         Sign Up?
                       </Link>
                    </button>
              

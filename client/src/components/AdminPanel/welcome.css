@@ -1,9 +1,21 @@
 * {
   box-sizing: border-box;
 }
+
+.logo-container {
+  position: relative;
+  width: 15vw;
+  height: 10vh;
+  transform: translateY(10vh);
+}
+.logo-container img {
+  width: 100%;
+  height: 100%;
+}
+
 .logIn .imgBox img
 {
-  position: relative ;
+  position: absolute ;
   z-index: -1;
   transform: translateY(-1000px);
 }
@@ -17,9 +29,12 @@
 }
 .logIn .formDiv
 {
+  position: absolute;
+  width: 100%;
+  top: 35%;
+  left: -10%;
   text-align: center;
   z-index: 9;
-  transform: translateY(-1700%);
 }
 .logIn .formDiv .username1
 {
@@ -50,9 +65,12 @@
 }
 .logIn .formDiv  button
 {
+  position: relative;
+  margin-left: 62.5vw;
+  margin-top: 40vh;
   height: 30px;
   width: 170px;
-  transform: translate(-330px , 330px);
+  z-index: 9;
   background-color: skyblue;
   color: white;
   padding-bottom: 30px;

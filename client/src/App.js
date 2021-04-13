@@ -32,57 +32,53 @@ import Signup from './components/Customer/signup';
 
 import Admin_Sign_Up from './components/AdminPanel/Admin_sign_up';
 
-import SuperAdmin_Sign_Up from './components/SuperAdmin/SuperAdmin_sign_up';
+import Register_SuperAdmin from './components/SuperAdmin/SuperAdmin_register';
+
+import Login_SuperAdmin from './components/SuperAdmin/SuperAdmin_login';
 
 import StartingPage from "./components/AdminPanel/StartingPage";
  
 function App() {
 
   return (
-  
-       <Router>
-               <Switch> 
+    <Router>
+      <Switch>
+        <Route exact path='/' component={StartingPage} />
+        <Route exact path='/phrama/login' component={Page1} />
 
-                    <Route exact path='/' component={StartingPage}/>
-                    <Route exact path='/phrama/login' component={Page1}/>
-                    
-                    <Route path='/page2' component={Page2}/>
+        <Route path='/page2' component={Page2} />
 
-                    <Route path='/index' component={Index}/>
+        <Route path='/index' component={Index} />
 
-                    <Route path='/scanner' component={Qrsanner}/>
-                    
-                    <Route exact path='/admin' component={Welcome} />
+        <Route path='/scanner' component={Qrsanner} />
 
-                    <Route exact path='/superadmin' component={SuperAdmin_Sign_Up} />
+        <Route exact path='/admin' component={Welcome} />
 
-                    <Route exact path='/admin_sign_up' component={Admin_Sign_Up} />
+        <Route exact path='/register_superadmin' component={Register_SuperAdmin} />
 
-                    <Route path='/admin/showDetails' component={DoctorShowDet} />
-                   
-                    <Route path='/admin/registerDoctor' component={RegisterDoctor} />
+        <Route exact path='/superadmin' component={Login_SuperAdmin} />
 
-                    <Route path='/admin/registerPharmacy' component={RegisterPharmacy} />
+        <Route exact path='/admin_sign_up' component={Admin_Sign_Up} />
 
-                    <Route path='/customer' component={Customer}/>
+        <Route path='/admin/showDetails' component={DoctorShowDet} />
 
-                    <Route path='/customer_signIn' component={CustomerSignIn} />
+        <Route path='/admin/registerDoctor' component={RegisterDoctor} />
 
-                    <Route exact path='/cutomer_signup' component={Signup} />
+        <Route path='/admin/registerPharmacy' component={RegisterPharmacy} />
 
-                    <Route exact path='/doctor' component={DWelcome}/>
+        <Route path='/customer' component={Customer} />
 
-                    <Route path='/doctor/welcome' component={DoctorWelcome}/>
+        <Route path='/customer_signIn' component={CustomerSignIn} />
 
-                    <Route path='/doctor/patient' component={Patient}/>
-          
-                    
-                    
-                    
+        <Route exact path='/cutomer_signup' component={Signup} />
 
-               </Switch>
-        </Router>
+        <Route exact path='/doctor' component={DWelcome} />
 
+        <Route path='/doctor/welcome' component={DoctorWelcome} />
+
+        <Route path='/doctor/patient' component={Patient} />
+      </Switch>
+    </Router>
   );
 }
 
