@@ -32,6 +32,8 @@ import Signup from './components/Customer/signup';
 
 import Admin_Sign_Up from './components/AdminPanel/Admin_sign_up';
 
+import SuperAdmin_Sign_Up from './components/SuperAdmin/SuperAdmin_sign_up';
+
 import StartingPage from "./components/AdminPanel/StartingPage";
  
 function App() {
@@ -51,6 +53,8 @@ function App() {
                     <Route path='/scanner' component={Qrsanner}/>
                     
                     <Route exact path='/admin' component={Welcome} />
+
+                    <Route exact path='/superadmin' component={SuperAdmin_Sign_Up} />
 
                     <Route exact path='/admin_sign_up' component={Admin_Sign_Up} />
 
