@@ -17,6 +17,7 @@ route.use('/pharma',pharmaRouter);
 
 route.use('/admin',hospitalRouter);
 
+
 // router.use('/admin', adminRouter)
 
 // router.get('/', (req, res) => {

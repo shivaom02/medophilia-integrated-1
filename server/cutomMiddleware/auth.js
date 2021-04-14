@@ -13,34 +13,34 @@ const auth = (role)=>{
             switch(role){
                 case "User":
                     Role=User;
-                    token = req.headers('AuthorizationUser')
+                    token = req.header('AuthorizationUser')
                     break;
                 case "Doctor":
                     Role=Doctor;
-                    token = req.headers('AuthorizationDoctor')
+                    token = req.header('AuthorizationDoctor')
                     break;
                 case "Pharma":  
                     Role=Pharma;
-                    token = req.headers('AuthorizationPharma')
+                    token = req.header('AuthorizationPharma')
                     break;
                 case "Hospital":
                     Role=Hospital 
-                    token = req.headers('AuthorizationAdmin')   
+                    token = req.header('AuthorizationAdmin')   
                     break;
                 case "SuperAdmin":
                     Role=SuperAdmin 
-                    token = req.headers('AuthorizationSuperAdmin')   
+                    token = req.header('AuthorizationSuperAdmin')   
                     break;
                 default:
                     return;    
                         
             }
             
+            console.log(token);
             if(!token){
-                res.status(401).json({msg:'No token, access Denied'})
+                res.status(200).json({msg:'No token, access Denied'})
             }
 
-            // const token = req.cookies.resultAuth
             console.log(token);
             const roleInfo = jwt.verify(token, "secrect")
             

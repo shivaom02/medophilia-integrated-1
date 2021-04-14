@@ -15,7 +15,7 @@ function Newlog() {
     useEffect(()=>{
             setToken(localStorage.getItem("DocToken"));
             if(token==undefined){
-                   history.push("/"); 
+                   history.push("/doctor/welcome"); 
             }
 
     },[token])

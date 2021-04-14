@@ -207,6 +207,22 @@ exports.One_prescriptions=async (req,res,next )=>{
 }
 
 
+
+exports.All_Doc =async (req,res,next)=>{
+    try{
+            const Doc=await Doctor.find({});
+            res.status(200).json({
+                success:1,
+                data:Doc,
+            });
+    }
+    catch (e){
+        res.json({
+            success:0,
+            error:e
+        })
+    }
+}
 // pharma
 // exports.All_pharma=async (req,res,next )=>{
 //     try{

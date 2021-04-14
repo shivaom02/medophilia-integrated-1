@@ -1,10 +1,12 @@
-import React,{useState} from 'react'
+import React,{useState,useEffect,useContext} from 'react'
 import './register_doctor.css'
-import axios from "axios";
 import { Link ,useHistory} from 'react-router-dom';
+import AxiosInstance from "../../utilsClient/AxiosInstance";
+import {toast,ToastContainer} from "react-toastify";
+import adminAuthContexts from "../../context/adminAuthContexts/authContext";
+import axios from "axios";
 
-
-function Register_doctor() {
+function Pharma_doctor() {
     const history=useHistory();
 
     const [name,setName]=useState("");
@@ -14,16 +16,42 @@ function Register_doctor() {
     const [password,setPassword]=useState("");
     const [checkPassword,setCheckPassword]=useState("");
     const [licence,setLicence]=useState("");
+    const [status,setStatus]=useState(false);
+    const notify=(message)=>toast(message);
     const Register= async(e)=>{
+
         e.preventDefault();
+        if(checkPassword!==password){
+            setStatus(false)
+            return notify("password does not match");
+        }
+        const token = localStorage.adminToken;
+        console.log(token,"from local");
         const data={name,email,address,phone,password,licence}
+        // axios.create({
+
+            
+            
+            
+        // })
+        console.log(token);
         try{
-            const result =await axios.post(`${window.location.protocol}//${window.location.hostname}:5000/admin/register`,data);
-            if(result.data.success==0){
-                return alert("Unable to register pharma");
+            const config={
+                headers:{
+                    "AuthorizationAdmin":`${token}`
+                },
             }
-            alert("registered successfully");
-            history.push("/admin/showDetails");
+            const result =await AxiosInstance.post(`/pharma/register`,data,config);
+            console.log(result);
+            if(result.data.success==0){
+                setStatus(false)
+                return notify("Unable to register pharma");
+            }
+            setStatus(true);
+            notify("registered successfully");
+            setTimeout(()=>{
+                history.push("/admin/showDetails");
+            },3000);
 
         }
         catch (e){
@@ -31,8 +59,21 @@ function Register_doctor() {
         }
 
     }
+
+    const Logout=()=>{
+
+    }
     return (
         <div className="register">
+            {status?<ToastContainer
+                hideProgressBar={true}
+                autoClose={4000}
+                bodyClassName={"success_message"}
+                />:<ToastContainer
+                hideProgressBar={true}
+                autoClose={4000}
+                bodyClassName={"error_message"}
+                />}
            <div class="flex-container">
           <div class="flex-item-left">
               <div className="left_content">
@@ -48,6 +89,9 @@ function Register_doctor() {
                     <Link to='/admin/registerPharmacy'>register a pharmacy</Link>
                   </p>
                   <p className="content">Delete</p>
+                  <p className="content" onClick={(e)=>{Logout(e)}}>
+                    Logout
+                  </p>
                   </div>
           </div>
            <div class="flex-item-right">
@@ -85,4 +129,4 @@ function Register_doctor() {
     )
 }
 
-export default Register_doctor
+export default Pharma_doctor
