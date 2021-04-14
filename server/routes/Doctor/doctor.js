@@ -8,7 +8,7 @@ const Doctor =require("../../models/Doctor");
 
 route.post('/login', docController.login_post);
 
-route.post('/register', docController.register);
+route.post('/register',auth("Hospital"),docController.register);
 
 route.get('/logout', auth("Doctor"), docController.logout_get);
 
@@ -26,6 +26,7 @@ route.get("/patient_detail/:user_id",auth("Doctor"),docController.patient_detail
 
 route.get("/all_patient_details",auth("Doctor"),docController.All_patient_details);
 
+route.get("/all_doc",auth("Hospital"),docController.All_Doc);
 
 // testing 
 route.get("/all_test",async (req,res)=>{

@@ -1,0 +1,79 @@
+.DPescription_1strow{
+    
+    display: flex;
+    flex-direction: row;
+}
+.DPescription_1strow .pescriptiondp{
+flex:1%;
+transform: scale(0.5);
+}
+.DPescription_1strow .pescriptiondetails{
+flex: 30%;
+justify-content: center;
+}
+.DPescription_1strow .pescriptionid{
+flex: 50%;
+/* text-align: left;
+justify-content: center; */
+color: rgb(0, 0, 0);
+}
+.DPescription_2ndrow{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: space-around;
+   
+}
+.DPescription_2ndrow button{
+    padding: 1%;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    max-height: 7vh;
+    margin-bottom: 7vh;
+    margin-top: 7vh;
+}
+.DPescription_2ndrow button:hover{
+    transform: scale(1.01);
+}
+.DPescription_2ndrow .DPdropdownbox{
+    background-color: #F8EFD4;
+    padding: 4%;
+}
+.DPescription_3rdrow{
+  
+}
+.DPescription_3rdrow .DpMedList{
+/* display: flex;    
+flex-direction: row ; */
+text-align: center;
+margin-top: 2%;
+}
+.DPescription_4throw{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    margin-top: 5%;
+    margin-bottom: 2%;
+}
+.DPescription_5throw{
+    background-color: #E2DFDF;
+    max-width: 30%;
+    padding: 2vw;
+    margin-left: 33%;
+    border-radius: 7px;
+}
+.DPconfirmation{
+    text-align: center;
+    
+}
+.imageDP{
+    transform: scale(0.5);
+}
+.imageDP:hover{
+    transform: scale(0.56);
+}
+/* .DPconfirmation img:hover{
+    transform: scale(0.7);
+} */

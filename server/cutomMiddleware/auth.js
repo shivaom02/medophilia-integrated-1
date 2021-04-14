@@ -41,11 +41,11 @@ const auth = (role)=>{
                         
             }
             
+            console.log(token);
             if(!token){
-                res.status(401).json({msg:'No token, access Denied'})
+                res.status(200).json({msg:'No token, access Denied'})
             }
 
-            // const token = req.cookies.resultAuth
             console.log(token);
             const roleInfo = await jwt.verify(token, "secrect")
             

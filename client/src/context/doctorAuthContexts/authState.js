@@ -1,7 +1,7 @@
 import React, { useReducer } from 'react';
 import AuthContext from './authContext';
 import authReducer from './authReducer';
-import axios from 'axios';
+import AxiosInstance from '../../utilsClient/AxiosInstance';
 import { setTokenDoctor } from '../../utilsClient/setToken';
 
 import {
@@ -31,7 +31,7 @@ const AuthState = (props) => {
   // confirm mail
   const confirmMail = async (teacher) => {
     // try {
-    //   const token = await axios.post('/teacher/', teacher);
+    //   const token = await AxiosInstance.post('/teacher/', teacher);
     //   dispatch({
     //     type: CONFIRM_EMAIL,
     //     payload: token
@@ -53,7 +53,7 @@ const AuthState = (props) => {
       }
     }
      try {
-       const res = await axios.post('/doc/register',doctor,config)
+       const res = await AxiosInstance.post('/doc/register',doctor,config)
        dispatch({
          type:SUCCESS_REGISTER,
          payload:res.data
@@ -75,7 +75,14 @@ const AuthState = (props) => {
       }
     };
     try {
-      const res = await axios.post('/doctor/login', loginData, config);
+      const res = await AxiosInstance.post('/doc/login', loginData, config);
+      console.log(res);
+      if(res.data.success==0){
+        return dispatch({
+           type: FAIL_LOGIN,
+           payload: true
+         });
+       }
       dispatch({
         type: SUCCESS_LOGIN,
         payload: res.data
@@ -83,7 +90,7 @@ const AuthState = (props) => {
     } catch (error) {
       dispatch({
         type: FAIL_LOGIN,
-        payload: error.response.data
+        payload: true
       });
     }
   };
@@ -102,7 +109,7 @@ const AuthState = (props) => {
       setTokenDoctor(localStorage.doctorToken);
     }
     try {
-      const res = await axios.get('/doctor/profile');
+      const res = await AxiosInstance.get('/doctor/profile');
 
       dispatch({
         type: SET_DOCTOR,

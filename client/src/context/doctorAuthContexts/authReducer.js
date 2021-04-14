@@ -51,7 +51,7 @@ import {
        return {
          ...state,
          doctor: payload,
-         erros: null
+         errors: null
        };
      default:
        return state;

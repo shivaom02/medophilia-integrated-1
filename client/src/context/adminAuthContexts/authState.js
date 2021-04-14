@@ -67,6 +67,7 @@ const AuthState = (props) => {
      }
   }
 
+  
   //login teacher
 
   const loginAdmin = async (loginData) => {
@@ -77,14 +78,22 @@ const AuthState = (props) => {
     };
     try {
       const res = await axios.post('/admin/log_in', loginData, config);
+      console.log(res);
+      if(res.data.success==0){
+       return dispatch({
+          type: FAIL_LOGIN,
+          payload: true
+        });
+      }
       dispatch({
         type: SUCCESS_LOGIN,
         payload: res.data
       });
+
     } catch (error) {
       dispatch({
         type: FAIL_LOGIN,
-        payload: error.response.data
+        payload: true
       });
     }
   };
@@ -99,7 +108,6 @@ const AuthState = (props) => {
   const getAdmin = async () => {
 
     if (localStorage.adminToken) {
-      
       setTokenAdmin(localStorage.adminToken);
     }
     try {
@@ -133,7 +141,7 @@ const AuthState = (props) => {
       value={{
         
         admin: state.admin,
-
+        adminAuth:state.adminAuth,
         errors: state.errors,
         confirmMail,
         registerAdmin,

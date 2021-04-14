@@ -12,7 +12,7 @@ const {auth}=require("../../cutomMiddleware/auth");
 
 const Pharma =require("../../models/Pharma");
 
-route.post('/register', hospitalController.register);
+route.post('/register',auth("Hospital"),hospitalController.register);
 
 route.post('/log_in', hospitalController.login);
 

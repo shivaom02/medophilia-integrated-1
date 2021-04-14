@@ -2,27 +2,30 @@ const Hospital = require("../../models/Hospital");
 
 exports.register = async (req, res, next) => {
     try {
-        const { password , name , phone , email , registrationId } = req.body;
+        const { password , name, email , description,medical,address} = req.body;
 
-        console.log("req.body",req.body);
         
         let hospital = await Hospital.create({
             password ,
             name , 
-            phone , 
+            address , 
             email , 
-            registrationId
+            description,
+            medical
         })
         const JWTtoken = await hospital.generateAuthToken()
 
         hospital = await hospital.toJSON();
 
-        res.cookie('resultAuth', JWTtoken, {
-            maxAge: 24 * 60 * 60 * 1000,
-            httpOnly: false,
-        })
+        // res.cookie('resultAuth', JWTtoken, {
+        //     maxAge: 24 * 60 * 60 * 1000,
+        //     httpOnly: false,
+        // })
 
-        res.status(201).json(hospital)
+        res.status(201).json({
+            success:1,
+            data:hospital
+        });
     } catch (e) {
         
         console.log(e,"profile Hospital");
@@ -43,11 +46,6 @@ exports.login = async (req, res, next) => {
 
         hospital = hospital.toJSON()
 
-        res.cookie('resultAuth', JWTtoken, {
-            maxAge: 24 * 60 * 60 * 1000,
-            httpOnly: false,
-        })
-    
         res.status(200).json({
             success:1,
             result:hospital,

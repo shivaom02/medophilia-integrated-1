@@ -1,9 +1,11 @@
 import React,{useEffect, useState} from 'react'
-
 import { Link ,useHistory} from 'react-router-dom';
 import axios from "axios";
 import './register_doctor.css'
-
+import  AxiosInstance from "../../utilsClient/AxiosInstance";
+// toast 
+import {ToastContainer,toast} from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 const Admin_sign_up = () => {
     const history=useHistory();
     const [name,setName]=useState("");
@@ -24,7 +26,9 @@ const Admin_sign_up = () => {
                 name,email,password,registrationId,phone
             }
             
-            const result =await axios.post(`${window.location.protocol}//${window.location.hostname}:5000/admin/register`,data);
+            // const result =await axios.post(`${window.location.protocol}//${window.location.hostname}:5000/admin/register`,data);
+            const result= await  AxiosInstance.post("/admin/register",data);
+            
             console.log(result);
             if(result.data.success==0){
                 return alert("Unable to login");
@@ -36,8 +40,11 @@ const Admin_sign_up = () => {
                alert(e); 
         }
     }
+    toast=()=>{}
     return (
+        
         <div className="register">
+        <ToastContainer/>
         <div class="flex-container">
 
         <div class="flex-item-right">

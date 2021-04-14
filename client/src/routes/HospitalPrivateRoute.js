@@ -6,6 +6,7 @@ const HospitalPrivateRoute = ({component:Component , ...rest}) => {
 
     const {  adminAuth } = useContext(AuthContext);
     
+    console.log(adminAuth);
     return (
         <Route 
            {...rest}

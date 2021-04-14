@@ -1,12 +1,12 @@
 import React,{useState,useEffect} from 'react'
-
 import  "./StartingPage.css"
 import {Link} from "react-router-dom";
 import Img from "../assets/banner.svg"
 
 
+
 function FirstPage() {
-    const [option,setOption]=useState("");
+    const [option,setOption]=useState("admin");
     const [link,setLink]=useState('');
     useEffect(() => {
         switch(option){
@@ -14,7 +14,7 @@ function FirstPage() {
                 setLink("admin")
                 break;
             case "doctor":
-                setLink("doctor")
+                setLink("doctor/signin")
                 break;
             case "customer":
                 setLink("customer_signIn")
@@ -24,6 +24,7 @@ function FirstPage() {
                 break;
         }
     }, [option])
+    
     return (
         <div className="entryPage">
          <img src={Img} alt=" " />
@@ -37,6 +38,7 @@ function FirstPage() {
                     <option vlaue="pharmacy">pharmacy</option>
                 </select>
             </div>
+            
         </div>
     )
 }

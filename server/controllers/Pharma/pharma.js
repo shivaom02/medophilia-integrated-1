@@ -187,15 +187,10 @@ exports.One_prescriptions=async (req,res,next )=>{
 exports.All_pharma=async (req,res,next )=>{
     try{
 
-        const One_press=await Prescription.findOne({
-            doc:req.params.id,
-            patient:req.patient._id,
-            _id:req.params._id
-
-        });
+        const all_pharma=await Pharma.find({});
         res.status(200).json({
             success:1,
-            data:One_press
+            data:all_pharma
         });
 
     }

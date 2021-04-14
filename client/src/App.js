@@ -9,11 +9,13 @@ import {BrowserRouter as Router,Switch,Route} from "react-router-dom";
 import Customer from './components/Customer/customerRouter';
 import CustomerSignIn from './components/Customer/signIn';
 import Welcome from './components/AdminPanel/welcome';
+// name correctly;
 import DoctorShowDet from './components/AdminPanel/doctorShowDet';
 import RegisterDoctor from './components/AdminPanel/register_doctor';
 import RegisterPharmacy from './components/AdminPanel/PharmacyRegister';
 import DWelcome from './components/DoctorPanel/doctorWelcome';
 import DoctorWelcome from './components/DoctorPanel/doctorPanelWelcome';
+import DoctorSelfWel from "./components/DoctorPanel/DoctorSelfWel";
 import Patient from './components/DoctorPanel/Patient_name';
 import Registration from './components/Customer/signIn';
 import Signup from './components/Customer/signup';
@@ -38,11 +40,14 @@ import DoctorState from './context/doctorAuthContexts/authState';
 import PharmaState from './context/pharmaAuthContexts/authState';
 import UserState from './context/userAuthContexts/authState';
 
+import MakePrecribtion from "./components/DoctorPanel/MakePrescribtion";
 import { setTokenAdmin,
         setTokenDoctor,
         setTokenPharma,
         setTokenSuperAdmin,
         setTokenUser } from './utilsClient/setToken';
+
+import "./App.css";
 
 if (localStorage.adminToken) {
       
@@ -68,7 +73,6 @@ if (localStorage.pharmaToken) {
       
         setTokenPharma(localStorage.pharmaToken);
 }
-
 
 function App() {
 
@@ -104,6 +108,7 @@ function App() {
                     <HospitalPrivateRoute path='/admin/registerDoctor' component={RegisterDoctor} />
 
                     <HospitalPrivateRoute path='/admin/registerPharmacy' component={RegisterPharmacy} />
+                    <Route exact path="/custo" component={Customer}/>
 
                     <UserPrivateRoute exact path='/customer' component={DoctorList}/>
 
@@ -119,9 +124,13 @@ function App() {
 
                     <Route path='/doctor' component={DWelcome} />
 
+                    <Route path='/doctor/signin' component={DoctorSelfWel}/>   
+                      
                     <DoctorPrivateRoute path='/doctor/welcome' component={DoctorWelcome}/>
 
                     <DoctorPrivateRoute path='/doctor/patient' component={Patient}/>
+
+                    <Route path='/doctor/makePrescribtion' component={MakePrecribtion}/>
           
                </Switch>
                

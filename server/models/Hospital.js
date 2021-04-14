@@ -101,10 +101,10 @@ hospitalSchema.methods.checkAndUpdate=async function(currentPassword,newPassword
    }
 }
 hospitalSchema.statics.findByCredentials = async function (email, passowrd) {
-    
+    console.log(email,passowrd,"Jitul");
     const hospital = await Hospital.findOne({email:email})
     
-    
+    console.log(hospital,"jitul");
     if (!hospital) {
         throw new Error('Unable to login')
     }
