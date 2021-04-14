@@ -4,12 +4,12 @@ import { Route , Redirect } from 'react-router-dom';
 
 const HospitalPrivateRoute = ({component:Component , ...rest}) => {
 
-    const {  hospitalAuth } = useContext(AuthContext);
+    const {  adminAuth } = useContext(AuthContext);
     
     return (
         <Route 
            {...rest}
-           render = {props => !hospitalAuth ? ( <Redirect to='/admin'/>) : (<Component {...props}/>) }
+           render = {props => adminAuth==undefined ? ( <Redirect to='/admin'/>) : (<Component {...props}/>) }
         />
     )
 }

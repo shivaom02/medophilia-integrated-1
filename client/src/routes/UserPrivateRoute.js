@@ -9,7 +9,7 @@ const UserPrivateRoute = ({component:Component , ...rest}) => {
     return (
         <Route 
            {...rest}
-           render = {props => !userAuth ? ( <Redirect to='/customer_signIn'/>) : (<Component {...props}/>) }
+           render = {props => userAuth==undefined ? ( <Redirect to='/customer_signIn'/>) : (<Component {...props}/>) }
         />
     )
 }

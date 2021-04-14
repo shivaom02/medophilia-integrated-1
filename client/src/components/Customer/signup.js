@@ -1,19 +1,65 @@
-import React,{useState} from "react";
+import React,{useState , useContext , useEffect} from "react";
 import banner from "../assets/banner.svg";
-import axios from "axios"
-import { Link ,useHistory} from 'react-router-dom';
+
+import AuthContext from '../../context/userAuthContexts/authContext';
+
+import { Link  , useHistory} from 'react-router-dom';
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 import "./Signup.css"
 
 const Signup=()=>{
-    const [name,setName]=useState("");
-    const [password,setPassword]=useState("");
-    const [checkPassword,setCheckPassword]=useState("");
-    const [phone,setPhone]=useState("");
-    const [email,setEmail]=useState("");
-    const history=useHistory();
-    const CutomerSignUp= async(e)=>{
+
+    const history = useHistory();
+
+    const {
+        registerUser,
+        errors,
+        clearError
+      } = useContext(AuthContext);
+
+    const [ customer , setCustomer ] = useState({
+        name:'',
+        password:'',
+        phone:'',
+        email:'',
+        checkPassword:''
+    })
+
+    
+    useEffect(() => {
+        return () => {
+          
+          if (localStorage.userToken) {
+          
+            history.push('/customer');
+         }
+        }
+      }, [])
+
+    const { name, password , phone , email , checkPassword } = customer;
+
+    const handleChange = (e)=>{
+        setCustomer({
+            ...customer,
+            [e.target.name]:e.target.value
+        })
+    }
+
+    const notifyPasswordReset = () => toast("password does not match");
+
+    const notifyUnableLogin = () => toast("unable to login");
+
+    const notifyLoginSuccess = () => toast("Account Created");
+
+    const onSubmit= async(e)=>{
+
         e.preventDefault();
+
+        await clearError();
+        
         try{
             const data={
                 name,
@@ -22,14 +68,30 @@ const Signup=()=>{
                 phone,
                 email
             };
+
             if(checkPassword!=password){
-               return alert("password does not match");
+        
+                notifyPasswordReset();
+
+                return;
             }
-            const result=await  axios.post("http://localhost:5000/cutomer/",data);
-            if(result.data.success==0){
-                return alert("unable to login")
+
+            console.log(data);
+
+            await registerUser(data);
+
+            if(errors){
+
+                notifyUnableLogin();
+
+                return;
             }
-            history.push("/")
+
+            await notifyLoginSuccess();
+
+
+            setTimeout(()=>history.push('/customer'),2000);
+
         }
         catch(e){
             console.log(e);
@@ -38,48 +100,81 @@ const Signup=()=>{
     }
     return(
     <div className="cusRegistration">
+        
         <div className="imgbox">
+        
             <img src={banner} alt='Banner Pic' />
         </div>
-        <form >
-            <input  onChange={(e)=>{setName(e.target.value)}}  className="input_second" placeholder="Name" />
-            <input onChange={(e)=>{setPhone(e.target.value)}} className="input_second" placeholder="Phone Number"/>
-            <input  onChange={(e)=>{setEmail(e.target.value)}} className="input_second" placeholder="Email"/>
-            <input  onChange={(e)=>{setPassword(e.target.value)}} className="input_second" placeholder="Password"/>
-            <input onChange={(e)=>{setCheckPassword(e.target.value)}} className="input_second" placeholder="Re-Enter Password"/>
+
+        <form onSubmit={onSubmit}>
+        
+            <input name='name'  onChange={handleChange} value={name} className="input_second" placeholder="Name" required/>
+            
+            <input name='phone' onChange={handleChange} value={phone} className="input_second" placeholder="Phone Number" required/>
+            
+            <input name='email' onChange={handleChange} value={email} className="input_second" placeholder="Email" required/>
+            
+            <input name='password' onChange={handleChange} value={password} className="input_second" placeholder="Password" required/>
+            
+            <input name='checkPassword' onChange={handleChange} value={checkPassword} className="input_second" placeholder="Re-Enter Password" required/>
             
             <div className="controls">
+             
                 <div className="checking">
+             
                     <input type="checkbox" id="checkit" />
+             
                     <label for="checkit" >Remember me</label>
                 </div>
-                   <button onClick={(e)=>{CutomerSignUp(e)}}>
-                      
-                          Sign Up
-                      
+                
+                   <button type='submit' >
+                       
+                       <ToastContainer 
+                           autoClose={4000}
+                           hideProgressBar={true}
+                       />
+                           Sign Up 
                    </button>
+                   
             </div>
-            <div className="dividor">
+        </form>
+
+        <div className='dividor'>
+          
+          <div className='border_div'></div>
+          <div className='div_or'>
+            <h5>Or</h5>
+        
+          </div>
+          <div className='border_div'></div>
+        </div>
+        <div className='options'>
+          <button>
+            <Link to='/customer_signIn'>Sign In?</Link>
+          </button>
+        </div>
+
+        {/* <div className="dividor">
                 <div className="border_div">
 
                 </div>
                 <div className="div_or">
+             
                     <h5>Or</h5>
                 </div>
+             
                 <div className="border_div">
 
                 </div>
             </div>
             <div className="options">
-        {/* '/customer/details' */}
                    <button >
                       
                          SignUp using Google
                       
                    </button>
              
-            </div>
-        </form>
+            </div> */}
 
     </div>)
 }

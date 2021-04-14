@@ -22,19 +22,19 @@ const DetailsSec=()=>{
         <nav className="sections">
            
             <div>
-                <Link to='/customer/medicine' >
+                <Link to='/customer/prescriptionDetails/medicine' >
                     Medicine
                 </Link>
             </div>
     
             <div>
-                <Link to='/customer'>
+                <Link to='/customer/prescriptionDetails'>
                     Details
                 </Link>
             </div>
 
             <div>
-                <Link to='/customer/calender'>
+                <Link to='/customer/prescriptionDetails/calender'>
                     Reminder
                 </Link>
             </div>

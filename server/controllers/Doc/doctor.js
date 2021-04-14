@@ -6,6 +6,7 @@ const Medicine=require("../../models/Medicine");
 const Hospital = require("../../models/Hospital");
 const qrcode=require("qrcode");
 
+const momentJs = require('moment');
 
 /* GET*/
 
@@ -262,7 +263,8 @@ exports.One_prescriptions=async (req,res,next )=>{
 
 exports.Make_Prescription=async (req,res,next)=>{
     try{
-        const {data,medicine,email}=req.body;
+        const { data,medicine,email }=req.body;
+
         const patient=await User.findOne({
             email:email
         })
@@ -274,13 +276,13 @@ exports.Make_Prescription=async (req,res,next)=>{
 
         }
 
-        const checkpatient=await Doctor.find({
-            patient: patient._id
-        });
-        if(checkpatient.length==1&&checkpatient=={}){
-
-        }
-        const mypatient=await Doctor.findByIdAndUpdate(req.userInfo.role._id,
+        // const checkpatient = await Doctor.find({
+        //     patient: patient._id
+        // });
+        // if(checkpatient.length==1&&checkpatient=={}){
+            
+        // }
+        const mypatient = await Doctor.findByIdAndUpdate(req.userInfo.role._id,
            {$push:{patient:patient._id}},{
                 new:true
             });
@@ -292,16 +294,17 @@ exports.Make_Prescription=async (req,res,next)=>{
         
         console.log(newdata,"qrcode is here");
 
-        const doctor=await Prescription.create({
+        const prescribtion = await Prescription.create({
             doc:req.userInfo.role._id,
             patient:patient._id,
             medicine,
             description:newdata,
+            vistedTime:moment().format('L,LT')
         });
         
         res.status(200).json({
             success:1,
-            data:doctor       
+            data:prescribtion       
          });
         // const press=await Prescription.create({
         //     name,

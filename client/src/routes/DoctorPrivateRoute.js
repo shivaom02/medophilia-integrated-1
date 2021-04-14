@@ -9,7 +9,7 @@ const DoctorPrivateRoute = ({component:Component , ...rest}) => {
     return (
         <Route 
            {...rest}
-           render = {props => !doctorAuth ? ( <Redirect to='/doctor'/>) : (<Component {...props}/>) }
+           render = {props => doctorAuth==undefined ? ( <Redirect to='/doctor'/>) : (<Component {...props}/>) }
         />
     )
 }

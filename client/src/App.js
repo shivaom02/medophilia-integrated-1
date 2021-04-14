@@ -20,8 +20,11 @@ import Signup from './components/Customer/signup';
 import Admin_Sign_Up from './components/AdminPanel/Admin_sign_up';
 import StartingPage from "./components/AdminPanel/StartingPage";
 
+import DoctorCustomerDetails from './components/Customer/DoctorDetails';
 import Login_SuperAdmin from './components/SuperAdmin/SuperAdmin_login';
 import Register_SuperAdmin from './components/SuperAdmin/SuperAdmin_register';
+
+import DoctorList from './components/Customer/table';
 
 import DoctorPrivateRoute from './routes/DoctorPrivateRoute';
 import HospitalPrivateRoute from './routes/HospitalPrivateRoute';
@@ -48,22 +51,22 @@ if (localStorage.adminToken) {
 
 if (localStorage.superAdminToken) {
       
-        setTokenAdmin(localStorage.superAdminToken);
+        setTokenSuperAdmin(localStorage.superAdminToken);
 }
 
 if (localStorage.doctorToken) {
       
-        setTokenAdmin(localStorage.doctorToken);
+        setTokenDoctor(localStorage.doctorToken);
 }
 
 if (localStorage.userToken) {
       
-        setTokenAdmin(localStorage.userToken);
+        setTokenUser(localStorage.userToken);
 }
 
 if (localStorage.pharmaToken) {
       
-        setTokenAdmin(localStorage.pharmaToken);
+        setTokenPharma(localStorage.pharmaToken);
 }
 
 
@@ -102,13 +105,19 @@ function App() {
 
                     <HospitalPrivateRoute path='/admin/registerPharmacy' component={RegisterPharmacy} />
 
-                    <UserPrivateRoute path='/customer' component={Customer}/>
+                    <UserPrivateRoute exact path='/customer' component={DoctorList}/>
+
+                    <UserPrivateRoute path='/customer/prescriptionDetails' component={Customer}/>
+
+                    <UserPrivateRoute path='/customer/doctor' component={DoctorCustomerDetails}/>
 
                     <Route path='/admin/registerPharmacy' component={RegisterPharmacy} />
 
-                    <UserPrivateRoute exact path='/cutomer_signup' component={Signup} />
+                    <Route exact path='/cutomer_signup' component={Signup} />
 
                     <Route path='/customer_signIn' component={CustomerSignIn} />
+
+                    <Route path='/doctor' component={DWelcome} />
 
                     <DoctorPrivateRoute path='/doctor/welcome' component={DoctorWelcome}/>
 

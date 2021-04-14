@@ -1,4 +1,5 @@
 require("dotenv").config();
+
 const express=require("express");
 const app=express();
 const PORT=process.env.PORT||5000;
@@ -6,7 +7,8 @@ const cors=require("cors");
 const cookieParser=require("cookie-parser");
 const session=require("express-session");
 const flash =require("connect-flash");
-const connectionDB=require("./db/connection");
+
+require("./db/connection");
 // in use
 app.use(express.json());
 app.use(express.urlencoded({extended:false}));
@@ -40,8 +42,6 @@ app.get("/test",(req,res)=>{
         message:"test success complete"
     })
 })
-// database connection
-connectionDB();
 
 // port listen
 app.listen(PORT,()=>{

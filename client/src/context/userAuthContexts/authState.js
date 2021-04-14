@@ -1,8 +1,9 @@
 import React, { useReducer } from 'react';
 import AuthContext from './authContext';
 import authReducer from './authReducer';
-import axios from 'axios';
 import { setTokenUser } from '../../utilsClient/setToken';
+
+import AxiosInstance from '../../utilsClient/AxiosInstance';
 
 import {
   SUCCESS_REGISTER,
@@ -52,18 +53,27 @@ const AuthState = (props) => {
         'Content-Type': 'application/json'
       }
     }
-     try {
-       const res = await axios.post('/user/register',user,config)
-       dispatch({
-         type:SUCCESS_REGISTER,
-         payload:res.data
+       const res = await AxiosInstance.post('/user/register',user,config);
+
+       console.log(res);
+
+       if(res.data.success==0){
+
+        dispatch({
+         
+          type:FAIL_REGISTER,
+         
+          payload:'Unable to Create Account'
+       
+        })
+      }  else{
+        
+        dispatch({
+        
+          type:SUCCESS_REGISTER,
+          payload:res.data
        })
-     } catch (error) {
-       dispatch({
-         type:FAIL_REGISTER,
-         payload:error.response.data
-       })
-     }
+       } 
   }
 
   //login teacher
@@ -74,18 +84,27 @@ const AuthState = (props) => {
         'Content-Type': 'application/json'
       }
     };
-    try {
-      const res = await axios.post('/user/login', loginData, config);
-      dispatch({
-        type: SUCCESS_LOGIN,
-        payload: res.data
-      });
-    } catch (error) {
-      dispatch({
-        type: FAIL_LOGIN,
-        payload: error.response.data
-      });
-    }
+      const res = await AxiosInstance.post('/user/login', loginData, config);
+     
+      console.log(res);
+
+       if(res.data.success==0){
+
+        dispatch({
+         
+          type:FAIL_LOGIN,
+         
+          payload:'Unable to Login'
+       
+        })
+      }  else{
+        
+        dispatch({
+        
+          type:SUCCESS_LOGIN,
+          payload:res.data
+       })
+       } 
   };
 
   //log_out
@@ -102,11 +121,13 @@ const AuthState = (props) => {
       setTokenUser(localStorage.userToken);
     }
     try {
-      const res = await axios.get('/user/profile');
+      const res = await AxiosInstance.get('/user/profile');
+
+      console.log(res.data.data);
 
       dispatch({
         type: SET_USER,
-        payload: res.data.user
+        payload: res.data.data
       });
     } catch (error) {
       dispatch({
@@ -136,11 +157,11 @@ const AuthState = (props) => {
         userAuth: state.userAuth,
 
         errors: state.errors,
+
         confirmMail,
         registerUser,
         loginUser,
         setError,
-        error: state.error,
         log_out,
         clearError,
         getUser

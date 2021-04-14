@@ -1,0 +1,34 @@
+.DoctorTable{
+    padding:5% 7%;
+    background:linear-gradient(0deg, rgb(241, 70, 241) 0%, rgb(88, 88, 245) 100%);
+    height: 100vh;
+}
+
+.DoctorTable .Heading 
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-size: 2.4rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.DoctorTable .table table
+{
+    width: 100%;
+}
+.DoctorTable .table th{
+    padding: 18px;
+    font-weight: 600;
+    font-size: 1.3rem;
+    background-color: #C4C4C4;
+}
+.DoctorTable .table td{
+    padding: 10px;
+    text-align: center;
+    font-weight: 200;
+    font-size: 1.2rem;
+    background-color: #C4C4C4;
+}

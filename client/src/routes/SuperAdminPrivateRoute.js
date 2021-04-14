@@ -9,7 +9,7 @@ const SuperAdminPrivateRoute = ({component:Component , ...rest}) => {
     return (
         <Route 
            {...rest}
-           render = {props => !superAdminAuth ? ( <Redirect to='/superAdmin/login'/>) : (<Component {...props}/>) }
+           render = {props => superAdminAuth==undefined ? ( <Redirect to='/superAdmin/login'/>) : (<Component {...props}/>) }
         />
     )
 }

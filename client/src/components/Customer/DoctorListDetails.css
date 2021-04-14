@@ -1,0 +1,30 @@
+.DoctorListDetails
+{
+    background:linear-gradient(0deg, rgb(241, 70, 241) 0%, rgb(88, 88, 245) 100%);
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    height: 100vh;
+}
+.DoctorListDetails .photo
+{
+    height: 100px;
+    width: 100px;
+    border-radius: 100%;
+    background-color: #C4C4C4;
+    text-align: center;
+    align-items: center;
+    top: 10%;
+}
+.DoctorListDetails .content
+{
+    margin-top: 1%;
+    text-align: center;
+}
+.DoctorListDetails .content p
+{
+    font-size: 1.4rem;
+    font-weight: 500;
+}

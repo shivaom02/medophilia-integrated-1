@@ -14,11 +14,11 @@ const CustomerRouter = () => {
             <Router>
                <DetailsSec />
                <Switch> 
-                    <Route exact path='/customer' component={CumDetails}/>
+                    <Route exact path='/customer/prescriptionDetails' component={CumDetails}/>
 
-                    <Route path='/customer/medicine' component={CumMedicine}/>
+                    <Route path='/customer/prescriptionDetails/medicine' component={CumMedicine}/>
 
-                    <Route path='/customer/calender' component={Calender}/>
+                    <Route path='/customer/prescriptionDetails/calender' component={Calender}/>
                </Switch>
            </Router>
 

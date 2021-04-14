@@ -10,26 +10,31 @@ const auth = (role)=>{
         let Role,token;
         try {
             //AuthorizationDoctor AuthorizationPharma  AuthorizationSuperAdmin AuthorizationAdmin
+
+            // console.log(req.header('AuthorizationUser'),req.header('AuthorizationDoctor'));
+            // console.log(req.header('AuthorizationPharma'),req.header('AuthorizationSuperAdmin'));
+            // console.log(req.header('AuthorizationSuperAdmin'));
+
             switch(role){
                 case "User":
                     Role=User;
-                    token = req.headers('AuthorizationUser')
+                    token = req.header('AuthorizationUser')
                     break;
                 case "Doctor":
                     Role=Doctor;
-                    token = req.headers('AuthorizationDoctor')
+                    token = req.header('AuthorizationDoctor')
                     break;
                 case "Pharma":  
                     Role=Pharma;
-                    token = req.headers('AuthorizationPharma')
+                    token = req.header('AuthorizationPharma')
                     break;
                 case "Hospital":
                     Role=Hospital 
-                    token = req.headers('AuthorizationAdmin')   
+                    token = req.header('AuthorizationAdmin')   
                     break;
                 case "SuperAdmin":
                     Role=SuperAdmin 
-                    token = req.headers('AuthorizationSuperAdmin')   
+                    token = req.header('AuthorizationSuperAdmin')   
                     break;
                 default:
                     return;    
@@ -42,7 +47,7 @@ const auth = (role)=>{
 
             // const token = req.cookies.resultAuth
             console.log(token);
-            const roleInfo = jwt.verify(token, "secrect")
+            const roleInfo = await jwt.verify(token, "secrect")
             
             // console.log(Role,"role model");
             // console.log(roleInfo._id,"role id");

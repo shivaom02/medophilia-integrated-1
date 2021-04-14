@@ -9,7 +9,7 @@ const PharmachyPrivateRoute = ({component:Component , ...rest}) => {
     return (
         <Route 
            {...rest}
-           render = {props => !pharmacyAuth ? ( <Redirect to='/phrama/login'/>) : (<Component {...props}/>) }
+           render = {props => pharmacyAuth==undefined ? ( <Redirect to='/phrama/login'/>) : (<Component {...props}/>) }
         />
     )
 }

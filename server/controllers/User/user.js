@@ -5,30 +5,33 @@ const Pharma=require("../../models/Pharma");
 const Medicine=require("../../models/Medicine");
 const Hospital = require("../../models/Hospital");
 
-
-
 // user 
-
 
 exports.register = async (req, res, next) => {
     try {
-        const { name, password,email,phone,sex,address,age} = req.body
-        let user = await User.create({
+        const { name, password,email,phone} = req.body
+
+        let user = await new User({
             name,
             password,
             email,
-            phone,
-            sex,
-            address,
-            age
+            phone
         })
-        const JWTtoken = await user.generateAuthToken()
+
+        await user.save();
+
+        const token = await user.generateAuthToken()
+
         user = await user.toJSON()
-        res.cookie('resultAuth', JWTtoken, {
-            maxAge: 24 * 60 * 60 * 1000,
-            httpOnly: false,
-        })
-        res.status(201).json(user)
+        // res.cookie('resultAuth', JWTtoken, {
+        //     maxAge: 24 * 60 * 60 * 1000,
+        //     httpOnly: false,
+        // })
+    
+        
+        console.log(user);
+
+        res.status(201).json({ user , token })
     } catch (e) {
         
         console.log(e,"profile user");
@@ -44,17 +47,22 @@ exports.register = async (req, res, next) => {
 exports.login_post = async (req, res, next) => {
     try {
         const { password, email } = req.body
+
         let user = await User.findByCredentials(email, password)
-        const JWTtoken = await user.generateAuthToken()
+        
+        const token = await user.generateAuthToken()
+        
         user = user.toJSON()
-        res.cookie('resultAuth', JWTtoken, {
-            maxAge: 24 * 60 * 60 * 1000,
-            httpOnly: false,
-        })
+        
+        // res.cookie('resultAuth', JWTtoken, {
+        //     maxAge: 24 * 60 * 60 * 1000,
+        //     httpOnly: false,
+        // })
     
         res.status(200).json({
             success:1,
-            result:user
+            user,
+            token
         })
     } catch (e) {
         
@@ -88,7 +96,7 @@ exports.Profile=async (req,res,next)=>{
         const user=await User.findOne({
             _id:req.userInfo.role._id
         });
-    
+        console.log(user);
         res.status(201).json({
             success:1,
             data:user
@@ -138,6 +146,11 @@ exports.All_prescriptions=async (req,res,next )=>{
 
         const All_press=await Prescription.find({
             patient:req.userInfo.role._id
+        })
+
+        await All_press.map(async (all_pres) => {
+            
+            await all_pres.populate('doc').execPopulate();
         })
 
         res.status(200).json({

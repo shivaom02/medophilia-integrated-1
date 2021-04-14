@@ -13,8 +13,10 @@ const prescriptionSchema = new mongoose.Schema(
        },
        description: {
            type:Buffer,
+       },    
+       vistedTime:{
+           type:String
        },
-       
        for:[{
             type:Date
        }],
@@ -25,8 +27,6 @@ const prescriptionSchema = new mongoose.Schema(
        reVisit:{
            type:Date,
        }
-
-        
     },
     {
         timestamps: true,

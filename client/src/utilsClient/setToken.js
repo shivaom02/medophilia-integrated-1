@@ -1,42 +1,47 @@
-import axios from 'axios'
+import AxiosInstance from '../utilsClient/AxiosInstance';
 
 const setTokenDoctor = token => {
   if (token) {
-    axios.defaults.headers.common['AuthorizationDoctor'] = token
+    AxiosInstance.defaults.headers.common['AuthorizationDoctor'] = token
   } else {
-    delete axios.defaults.headers.common['AuthorizationDoctor']
+    delete AxiosInstance.defaults.headers.common['AuthorizationDoctor']
   }
 }
 
 const setTokenPharma = token => {
   if (token) {
-    axios.defaults.headers.common['AuthorizationPharma'] = token
+    AxiosInstance.defaults.headers.common['AuthorizationPharma'] = token
   } else {
-    delete axios.defaults.headers.common['AuthorizationPharma']
+    delete AxiosInstance.defaults.headers.common['AuthorizationPharma']
   }
 }
 
 const setTokenUser = token => {
+
+  AxiosInstance.defaults.headers.common['AuthorizationUser'] = '';
+  
+  delete AxiosInstance.defaults.headers.common['AuthorizationUser']
+
   if (token) {
-    axios.defaults.headers.common['AuthorizationUser'] = token
-  } else {
-    delete axios.defaults.headers.common['AuthorizationUser']
+    AxiosInstance.defaults.headers.common['AuthorizationUser'] = `${token}`;
+
+    console.log(AxiosInstance.defaults.headers.common['AuthorizationUser']);
   }
 }
 
 const setTokenSuperAdmin = token => {
   if (token) {
-    axios.defaults.headers.common['AuthorizationSuperAdmin'] = token
+    AxiosInstance.defaults.headers.common['AuthorizationSuperAdmin'] = token
   } else {
-    delete axios.defaults.headers.common['AuthorizationSuperAdmin']
+    delete AxiosInstance.defaults.headers.common['AuthorizationSuperAdmin']
   }
 }
 
 const setTokenAdmin = token => {
   if (token) {
-    axios.defaults.headers.common['AuthorizationAdmin'] = token
+    AxiosInstance.defaults.headers.common['AuthorizationAdmin'] = token
   } else {
-    delete axios.defaults.headers.common['AuthorizationAdmin']
+    delete AxiosInstance.defaults.headers.common['AuthorizationAdmin']
   }
 }
 
